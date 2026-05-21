@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Keyboard, Clock, Globe, Code2, ChevronDown, BarChart2, AlignLeft } from 'lucide-react';
 
