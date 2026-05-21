@@ -27,7 +27,7 @@ const Rankings = ({ sound, setSound }) => {
     const fetchRanking = async () => {
       try {
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/ranking/${orderBy}`);
-        if (response.status === 200) setRanking(response.data);
+        if (response.status === 200 && Array.isArray(response.data)) setRanking(response.data);
       } catch (e) {
         console.error('Error al obtener el ranking:', e);
       }

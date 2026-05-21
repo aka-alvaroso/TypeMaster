@@ -17,6 +17,12 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
+// Evitar que el navegador cachee respuestas de la API
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  next();
+});
+
 // Autenticación
 app.use("/user", userRoutes);
 

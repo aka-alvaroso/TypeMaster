@@ -56,12 +56,12 @@ const History = ({ sound, setSound }) => {
                   key={index}
                   className="w-full flex items-center px-4 py-3 text-sm text-kp-text hover:bg-kp-border/30 transition-colors"
                 >
-                  <p className="w-1/6">{test.settings.mode === 'practice' ? 'Práctica' : test.settings.mode === 'timed' ? 'Cronómetro' : 'Competitivo'}</p>
-                  <p className="w-1/6">{test.results.score}</p>
-                  <p className="w-1/6">{test.settings.difficulty === 'easy' ? 'Fácil' : test.settings.difficulty === 'medium' ? 'Medio' : 'Difícil'}</p>
-                  <p className="w-1/6">{test.settings.type === 'text' ? 'Texto' : 'Código'}</p>
-                  <p className="w-1/6">{test.results.speed} cpm</p>
-                  <p className="w-1/6">{test.results.accuracy} %</p>
+                  <p className="w-1/6">{test.mode === 'practice' ? 'Práctica' : test.mode === 'timed' ? 'Cronómetro' : 'Competitivo'}</p>
+                  <p className="w-1/6">{test.score}</p>
+                  <p className="w-1/6">{test.difficulty === 'easy' ? 'Fácil' : test.difficulty === 'medium' ? 'Medio' : 'Difícil'}</p>
+                  <p className="w-1/6">{test.type === 'text' ? 'Texto' : 'Código'}</p>
+                  <p className="w-1/6">{test.speed} cpm</p>
+                  <p className="w-1/6">{test.accuracy} %</p>
                   <p className="w-2/6 text-kp-muted">{test.date}</p>
                 </Link>
               ))}
