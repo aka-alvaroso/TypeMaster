@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Keyboard, Clock, Globe, Code2, ChevronDown, BarChart2, AlignLeft } from 'lucide-react';
 
@@ -104,13 +104,8 @@ const CODE_LANGS = [
   { value: 'java',       label: 'Java' },
 ];
 
-const GameSelector = ({ setGameSettings }) => {
-  const [mode,       setMode]       = useState('practice');
-  const [type,       setType]       = useState('text');
-  const [lang,       setLang]       = useState('es');
-  const [difficulty, setDifficulty] = useState('easy');
-  const [length,     setLength]     = useState('medium');
-  const [time,       setTime]       = useState(60);
+const GameSelector = ({ gameSettings, setGameSettings }) => {
+  const { mode, type, language: lang, difficulty, length, time } = gameSettings;
 
   const modeP = usePopover();
   const timeP = usePopover();
@@ -118,14 +113,12 @@ const GameSelector = ({ setGameSettings }) => {
   const diffP = usePopover();
   const lenP  = usePopover();
 
-  const pick = (setter, key, value, closePopover) => {
-    setter(value);
+  const pick = (key, value, closePopover) => {
     setGameSettings(p => ({ ...p, [key]: value }));
     closePopover(false);
   };
 
   const pickTypeLang = (t, l) => {
-    setType(t); setLang(l);
     setGameSettings(p => ({ ...p, type: t, language: l }));
     typeP.setOpen(false);
   };
@@ -148,7 +141,7 @@ const GameSelector = ({ setGameSettings }) => {
           {modeP.open && (
             <Popover>
               {MODE_OPTIONS.map(o => (
-                <PopoverItem key={o.value} active={mode === o.value} onClick={() => pick(setMode, 'mode', o.value, modeP.setOpen)}>
+                <PopoverItem key={o.value} active={mode === o.value} onClick={() => pick('mode', o.value, modeP.setOpen)}>
                   {o.label}
                 </PopoverItem>
               ))}
@@ -165,7 +158,7 @@ const GameSelector = ({ setGameSettings }) => {
             {timeP.open && (
               <Popover>
                 {TIME_OPTIONS.map(o => (
-                  <PopoverItem key={o.value} active={time === o.value} onClick={() => pick(setTime, 'time', o.value, timeP.setOpen)}>
+                  <PopoverItem key={o.value} active={time === o.value} onClick={() => pick('time', o.value, timeP.setOpen)}>
                     {o.label}
                   </PopoverItem>
                 ))}
@@ -206,7 +199,7 @@ const GameSelector = ({ setGameSettings }) => {
           {diffP.open && (
             <Popover>
               {DIFF_OPTIONS.map(o => (
-                <PopoverItem key={o.value} active={difficulty === o.value} onClick={() => pick(setDifficulty, 'difficulty', o.value, diffP.setOpen)}>
+                <PopoverItem key={o.value} active={difficulty === o.value} onClick={() => pick('difficulty', o.value, diffP.setOpen)}>
                   {o.label}
                 </PopoverItem>
               ))}
@@ -222,7 +215,7 @@ const GameSelector = ({ setGameSettings }) => {
           {lenP.open && (
             <Popover>
               {LEN_OPTIONS.map(o => (
-                <PopoverItem key={o.value} active={length === o.value} onClick={() => pick(setLength, 'length', o.value, lenP.setOpen)}>
+                <PopoverItem key={o.value} active={length === o.value} onClick={() => pick('length', o.value, lenP.setOpen)}>
                   {o.label}
                 </PopoverItem>
               ))}
@@ -236,8 +229,8 @@ const GameSelector = ({ setGameSettings }) => {
 };
 
 GameSelector.propTypes = {
-  gameSettings: PropTypes.object,
-  setGameSettings: PropTypes.func,
+  gameSettings: PropTypes.object.isRequired,
+  setGameSettings: PropTypes.func.isRequired,
 };
 
 Chip.propTypes = {

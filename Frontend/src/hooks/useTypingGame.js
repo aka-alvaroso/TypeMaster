@@ -67,7 +67,7 @@ export const useTypingGame = ({ settings, sound, timeRemaining, onStart, onFinis
     }
   }, [timeRemaining]);
 
-  const fetchText = async () => {
+  const fetchText = async (retries = 2) => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/text/get`, {
         params: {
@@ -85,8 +85,11 @@ export const useTypingGame = ({ settings, sound, timeRemaining, onStart, onFinis
         // Registrar como visto (máx 5)
         recentIdsRef.current = [...recentIdsRef.current, picked.id].slice(-5);
       }
-    } catch {
-      // sin texto disponible
+    } catch (err) {
+      console.error('[fetchText] Error al obtener texto:', err?.response?.status, err?.message);
+      if (retries > 0) {
+        setTimeout(() => fetchText(retries - 1), 1000);
+      }
     }
   };
 
