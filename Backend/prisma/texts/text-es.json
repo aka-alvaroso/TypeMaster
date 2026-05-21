@@ -1,94 +1,87 @@
 [
-  {
-    "difficulty": "easy", "length": "short",
-    "content": "el sol sale cada dia y la luna brilla cada noche en el cielo claro"
-  },
-  {
-    "difficulty": "easy", "length": "short",
-    "content": "los ninos juegan en el parque con una pelota roja y un perro blanco"
-  },
-  {
-    "difficulty": "easy", "length": "short",
-    "content": "me gusta leer libros en casa cuando llueve y tomar te caliente"
-  },
-  {
-    "difficulty": "easy", "length": "medium",
-    "content": "cada manana me levanto temprano para salir a correr por el parque antes de que llegue el calor del verano y el aire este cargado"
-  },
-  {
-    "difficulty": "easy", "length": "medium",
-    "content": "el mercado del pueblo abre los sabados y la gente compra frutas frescas verduras del campo y pan recien hecho en el horno de lena"
-  },
-  {
-    "difficulty": "easy", "length": "medium",
-    "content": "mi hermano tiene un gato naranja que duerme todo el dia en el sofa y solo se despierta cuando escucha el sonido de la comida"
-  },
-  {
-    "difficulty": "easy", "length": "long",
-    "content": "cuando era pequeno pasaba los veranos en casa de mis abuelos en un pueblo tranquilo donde no habia mucho que hacer pero el tiempo pasaba despacio y eso era lo mejor de todo porque podiamos jugar en el rio pescar con cana y ver las estrellas por la noche sin prisas"
-  },
-  {
-    "difficulty": "easy", "length": "long",
-    "content": "el tren sale a las ocho de la manana y llega a la ciudad a las diez si no hay retrasos en el camino durante el viaje puedes ver el campo verde los arboles y los pequenos pueblos que quedan atras mientras el paisaje cambia poco a poco hasta que aparecen los primeros edificios de la ciudad"
-  },
-  {
-    "difficulty": "medium", "length": "short",
-    "content": "La inteligencia artificial está cambiando la forma en que trabajamos, aprendemos y nos relacionamos con el mundo."
-  },
-  {
-    "difficulty": "medium", "length": "short",
-    "content": "El 80% de los errores en producción se deben a cambios no probados; la disciplina de testing marca la diferencia."
-  },
-  {
-    "difficulty": "medium", "length": "short",
-    "content": "Diseñar bien una API desde el principio ahorra semanas de refactorización: claridad, consistencia y versionado son clave."
-  },
-  {
-    "difficulty": "medium", "length": "medium",
-    "content": "La arquitectura de software no se trata solo de código: implica decisiones sobre escalabilidad, mantenibilidad y coste. Cada elección tiene consecuencias a largo plazo que pueden facilitar o bloquear el crecimiento del producto."
-  },
-  {
-    "difficulty": "medium", "length": "medium",
-    "content": "Aprender a escribir código limpio es tan importante como aprender a programar. Un código legible reduce errores, facilita la revisión y permite que otros —o tú mismo en el futuro— entiendas qué hace cada parte sin necesidad de comentarios excesivos."
-  },
-  {
-    "difficulty": "medium", "length": "medium",
-    "content": "El fenómeno de la deuda técnica aparece cuando se toman atajos en el desarrollo para ganar tiempo a corto plazo. Con el tiempo, esos atajos se acumulan y ralentizan el avance del equipo hasta que la refactorización se vuelve inevitable y costosa."
-  },
-  {
-    "difficulty": "medium", "length": "long",
-    "content": "La historia de la computación moderna está llena de decisiones que parecían menores en su momento pero resultaron ser fundamentales. La elección de un tipo de dato, el diseño de un protocolo de red o la forma en que se organiza la memoria pueden determinar si un sistema escala con elegancia o colapsa bajo su propio peso años después de haber sido construido."
-  },
-  {
-    "difficulty": "medium", "length": "long",
-    "content": "El movimiento del software libre nació de la convicción de que el conocimiento no debe tener dueño. Richard Stallman, al no poder modificar el código de una impresora en 1980, decidió que ningún programador debería estar en esa situación; así nació GNU y, años más tarde, con el kernel de Linux, el sistema operativo libre más usado del mundo en servidores, móviles y supercomputadoras."
-  },
-  {
-    "difficulty": "hard", "length": "short",
-    "content": "¡Atención! El índice de Gini —0,45 en 2023— refleja una desigualdad estructural que ningún PIB per cápita «récord» puede enmascarar."
-  },
-  {
-    "difficulty": "hard", "length": "short",
-    "content": "La función φ(n) de Euler cuenta los enteros entre 1 y n coprimos con n; si n = p·q con p, q primos: φ(n) = (p−1)(q−1)."
-  },
-  {
-    "difficulty": "hard", "length": "short",
-    "content": "El protocolo TLS 1.3 eliminó los cipher suites débiles (RC4, 3DES, SHA-1) y redujo el handshake a 1-RTT, mejorando latencia y seguridad simultáneamente."
-  },
-  {
-    "difficulty": "hard", "length": "medium",
-    "content": "La complejidad computacional clasifica los problemas según los recursos necesarios para resolverlos. P contiene los problemas resolubles en tiempo polinómico; NP, aquellos cuya solución se verifica en tiempo polinómico. La pregunta de si P = NP sigue abierta y es considerada el problema más importante de las ciencias de la computación."
-  },
-  {
-    "difficulty": "hard", "length": "medium",
-    "content": "El teorema CAP establece que un sistema distribuido no puede garantizar simultáneamente consistencia (C), disponibilidad (A) y tolerancia a particiones (P). En la práctica, ante una partición de red inevitable, los diseñadores deben elegir entre CP —priorizar consistencia— o AP —priorizar disponibilidad—, con implicaciones directas en la experiencia del usuario."
-  },
-  {
-    "difficulty": "hard", "length": "long",
-    "content": "La criptografía asimétrica, propuesta por Diffie y Hellman en 1976, revolucionó las comunicaciones seguras al eliminar la necesidad de compartir una clave secreta previamente. RSA, publicado en 1977 por Rivest, Shamir y Adleman, se basa en la dificultad de factorizar el producto de dos números primos grandes: n = p·q. La seguridad del sistema depende de que, dado n público, sea computacionalmente inviable obtener p y q en tiempo razonable —un problema para el que aún no existe algoritmo clásico eficiente, aunque los computadores cuánticos podrían romperlo con el algoritmo de Shor."
-  },
-  {
-    "difficulty": "hard", "length": "long",
-    "content": "Los sistemas de tipos en lenguajes de programación no son mero formalismo académico: son contratos ejecutables que el compilador verifica antes de que el código llegue a producción. Haskell, con su sistema de tipos Hindley-Milner y las typeclasses, permite expresar invariantes complejos —como la ausencia de efectos secundarios mediante IO— directamente en los tipos. Rust lleva esta idea más lejos al codificar la propiedad y el tiempo de vida de las referencias en el sistema de tipos, eliminando en tiempo de compilación clases enteras de bugs de memoria sin necesidad de un recolector de basura."
-  }
+  { "difficulty": "easy", "length": "short", "content": "el sol sale cada dia y la luna brilla cada noche en el cielo claro" },
+  { "difficulty": "easy", "length": "short", "content": "el gato duerme en la cama y el perro juega en el jardin" },
+  { "difficulty": "easy", "length": "short", "content": "me gusta beber agua y comer fruta fresca por la manana" },
+  { "difficulty": "easy", "length": "short", "content": "la casa es grande y tiene un jardin con muchos arboles" },
+  { "difficulty": "easy", "length": "short", "content": "hoy hace buen tiempo y el cielo esta muy azul y claro" },
+  { "difficulty": "easy", "length": "short", "content": "el nino lee un libro en el sofa de su cuarto cada tarde" },
+  { "difficulty": "easy", "length": "short", "content": "voy al mercado a comprar pan leche y huevos para el desayuno" },
+  { "difficulty": "easy", "length": "short", "content": "mi amigo vive cerca y lo veo todos los dias cuando salgo" },
+  { "difficulty": "easy", "length": "short", "content": "la musica me hace feliz y me gusta bailar con mis amigos" },
+  { "difficulty": "easy", "length": "short", "content": "el rio baja rapido por la montana y llega al mar azul" },
+  { "difficulty": "easy", "length": "short", "content": "tengo dos hermanos y vivimos todos juntos en la misma casa" },
+  { "difficulty": "easy", "length": "short", "content": "el avion vuela alto en el cielo entre las nubes blancas" },
+  { "difficulty": "easy", "length": "medium", "content": "cada manana me levanto temprano y preparo el desayuno para toda la familia antes de ir al trabajo en coche" },
+  { "difficulty": "easy", "length": "medium", "content": "el parque cerca de mi casa tiene muchos arboles grandes y un lago donde los ninos dan de comer a los patos" },
+  { "difficulty": "easy", "length": "medium", "content": "me gustan los fines de semana porque puedo descansar ver una pelicula y pasar tiempo con las personas que quiero" },
+  { "difficulty": "easy", "length": "medium", "content": "mi trabajo consiste en revisar documentos y responder correos durante toda la manana y parte de la tarde" },
+  { "difficulty": "easy", "length": "medium", "content": "cuando era nino pasaba los veranos en el pueblo de mis abuelos donde habia un rio y un bosque muy bonito" },
+  { "difficulty": "easy", "length": "medium", "content": "el perro de mi vecino es muy grande pero muy bueno y a veces viene a jugar con los ninos del barrio" },
+  { "difficulty": "easy", "length": "medium", "content": "los lunes son mis dias favoritos porque empiezo la semana con energia y tengo muchas ganas de hacer cosas nuevas" },
+  { "difficulty": "easy", "length": "medium", "content": "la biblioteca del barrio tiene miles de libros y puedo ir cuando quiera para leer o estudiar en silencio" },
+  { "difficulty": "easy", "length": "medium", "content": "aprender a cocinar es una habilidad muy util que me ha ayudado mucho desde que empece a vivir solo en la ciudad" },
+  { "difficulty": "easy", "length": "medium", "content": "el tren llega a las ocho de la manana y sale media hora mas tarde con todos los viajeros que van a la ciudad" },
+  { "difficulty": "easy", "length": "long", "content": "vivir en una ciudad grande tiene muchas ventajas como tener acceso a tiendas restaurantes y medios de transporte pero tambien tiene sus desventajas como el ruido el trafico y la falta de espacios verdes donde poder descansar" },
+  { "difficulty": "easy", "length": "long", "content": "cuando era pequeno mi pasatiempo favorito era construir cosas con piezas de plastico de colores podia pasar horas enteras inventando coches castillos y naves espaciales sin cansarme ni aburrirme en ningun momento" },
+  { "difficulty": "easy", "length": "long", "content": "el verano pasado fui de vacaciones con mi familia a la playa pasamos una semana entera nadando en el mar jugando en la arena y comiendo helados por las tardes antes de ver el atardecer desde el paseo maritimo" },
+  { "difficulty": "easy", "length": "long", "content": "me gusta mucho caminar por el campo cuando hace buen tiempo el aire fresco los pajaros cantando y el sonido del viento entre los arboles me ayudan a descansar y pensar con claridad despues de una semana de trabajo" },
+  { "difficulty": "easy", "length": "long", "content": "mi abuela siempre decia que la mejor forma de aprender algo es practicarlo todos los dias aunque solo sean unos minutos la constancia y la paciencia son las herramientas mas poderosas que una persona puede tener en la vida" },
+  { "difficulty": "easy", "length": "long", "content": "el fin de semana organizamos una barbacoa en el jardin con todos los amigos del barrio cada uno trajo algo de comer y bebemos estuvimos charlando y riendo hasta muy tarde fue uno de los mejores dias del ano" },
+
+  { "difficulty": "medium", "length": "short", "content": "La tecnología avanza a un ritmo vertiginoso, transformando la manera en que nos comunicamos y trabajamos." },
+  { "difficulty": "medium", "length": "short", "content": "El cambio climático es uno de los mayores retos a los que se enfrenta la humanidad en este siglo." },
+  { "difficulty": "medium", "length": "short", "content": "La inteligencia artificial está redefiniendo los límites de lo que las máquinas pueden hacer por nosotros." },
+  { "difficulty": "medium", "length": "short", "content": "Leer a diario es uno de los hábitos más beneficiosos que cualquier persona puede adoptar a lo largo de su vida." },
+  { "difficulty": "medium", "length": "short", "content": "El arte contemporáneo genera debates apasionantes sobre el significado y el valor de la expresión humana." },
+  { "difficulty": "medium", "length": "short", "content": "La economía global atraviesa una fase de transición hacia modelos más sostenibles y equitativos." },
+  { "difficulty": "medium", "length": "short", "content": "Cada idioma que aprendemos nos abre una nueva ventana hacia culturas y formas de pensar distintas." },
+  { "difficulty": "medium", "length": "short", "content": "El deporte de alto rendimiento exige una combinación única de disciplina mental y capacidad física." },
+  { "difficulty": "medium", "length": "short", "content": "Las ciudades modernas deben equilibrar el crecimiento urbano con la preservación de los espacios naturales." },
+  { "difficulty": "medium", "length": "short", "content": "La fotografía captura instantes únicos que de otro modo quedarían perdidos en el fluir del tiempo." },
+  { "difficulty": "medium", "length": "short", "content": "Un buen libro puede cambiar la perspectiva de una persona más profundamente que años de experiencia acumulada." },
+  { "difficulty": "medium", "length": "short", "content": "Las redes sociales han transformado la forma en que las personas construyen y mantienen sus relaciones." },
+  { "difficulty": "medium", "length": "medium", "content": "El desarrollo del pensamiento crítico es fundamental en la educación moderna, ya que permite a los estudiantes analizar información de manera objetiva y tomar decisiones bien fundamentadas en su vida cotidiana." },
+  { "difficulty": "medium", "length": "medium", "content": "La música clásica y el jazz comparten una base común en la teoría musical, aunque se expresan de maneras completamente diferentes, cada una con su propio lenguaje emocional y su historia particular." },
+  { "difficulty": "medium", "length": "medium", "content": "Los viajes al extranjero no solo amplían nuestros horizontes culturales, sino que también nos enseñan a adaptarnos a situaciones inesperadas y a valorar lo que tenemos en nuestro propio país." },
+  { "difficulty": "medium", "length": "medium", "content": "La arquitectura sostenible busca crear edificios que minimicen su impacto ambiental utilizando materiales eficientes, energías renovables y diseños que aprovechen al máximo la luz natural." },
+  { "difficulty": "medium", "length": "medium", "content": "El trabajo en equipo requiere comunicación constante, respeto mutuo y la capacidad de asumir tanto los éxitos como los fracasos de manera colectiva, sin buscar culpables individuales." },
+  { "difficulty": "medium", "length": "medium", "content": "La gastronomía española es reconocida mundialmente por su diversidad y riqueza, desde las tapas del sur hasta los pintxos del norte, pasando por los arroces levantinos y los guisos castellanos." },
+  { "difficulty": "medium", "length": "medium", "content": "La meditación y el mindfulness han ganado popularidad en occidente como herramientas eficaces para reducir el estrés y mejorar la concentración en un mundo cada vez más acelerado y ruidoso." },
+  { "difficulty": "medium", "length": "medium", "content": "Los océanos cubren más del setenta por ciento de la superficie terrestre y albergan una biodiversidad extraordinaria que todavía estamos lejos de comprender y catalogar en su totalidad." },
+  { "difficulty": "medium", "length": "medium", "content": "El mercado laboral está experimentando cambios estructurales profundos impulsados por la automatización y la digitalización, lo que obliga a los trabajadores a desarrollar nuevas competencias continuamente." },
+  { "difficulty": "medium", "length": "medium", "content": "La historia de la humanidad está marcada por la curiosidad y el deseo constante de explorar lo desconocido, desde las primeras migraciones prehistóricas hasta los viajes espaciales del siglo veintiuno." },
+  { "difficulty": "medium", "length": "long", "content": "El siglo XX fue testigo de transformaciones radicales en todos los ámbitos de la civilización humana: dos guerras mundiales que redibujaron el mapa político, la carrera espacial que demostró la capacidad del ser humano para superar límites aparentemente insalvables, y la revolución digital que cambió para siempre la manera en que nos relacionamos con el conocimiento y entre nosotros." },
+  { "difficulty": "medium", "length": "long", "content": "La salud mental ha dejado de ser un tema tabú para convertirse en un elemento central del debate público sobre el bienestar de las personas. Cada vez más profesionales, instituciones y medios de comunicación reconocen que cuidar la mente es tan importante como cuidar el cuerpo, y que la sociedad debe crear entornos que faciliten ese cuidado para todos." },
+  { "difficulty": "medium", "length": "long", "content": "La transición energética es uno de los procesos más complejos y urgentes de nuestro tiempo. Implica no solo sustituir los combustibles fósiles por fuentes renovables, sino también transformar las infraestructuras de distribución, los modelos de consumo y los sistemas económicos que durante décadas han dependido del petróleo y el gas natural para funcionar." },
+  { "difficulty": "medium", "length": "long", "content": "El aprendizaje de un instrumento musical en la infancia tiene efectos documentados sobre el desarrollo cognitivo del niño. Mejora la memoria, la coordinación motora, la disciplina y la capacidad para trabajar en equipo. Además, proporciona un canal de expresión emocional que puede ser enormemente valioso a lo largo de toda la vida, especialmente en momentos de dificultad personal." },
+  { "difficulty": "medium", "length": "long", "content": "Las grandes ciudades concentran oportunidades económicas, culturales y sociales que no existen en los entornos rurales. Sin embargo, también generan problemas específicos como la desigualdad, la soledad urbana, la contaminación y el acceso desigual a la vivienda. Encontrar el equilibrio entre desarrollo y calidad de vida es el gran reto del urbanismo contemporáneo." },
+  { "difficulty": "medium", "length": "long", "content": "La biodiversidad es el fundamento sobre el que se sostienen todos los ecosistemas del planeta. La pérdida acelerada de especies que estamos experimentando en las últimas décadas no es solo un problema ecológico, sino también económico y social, ya que muchos de los servicios que la naturaleza nos presta, como la polinización, la purificación del agua o la regulación del clima, dependen directamente de ella." },
+
+  { "difficulty": "hard", "length": "short", "content": "La epistemología cuestiona los fundamentos del conocimiento: ¿qué podemos conocer y con qué certeza? Descartes, Kant y Hume ofrecieron respuestas radicalmente distintas." },
+  { "difficulty": "hard", "length": "short", "content": "El teorema de incompletitud de Gödel (1931) demostró que en cualquier sistema formal suficientemente potente existen proposiciones verdaderas que no pueden probarse dentro del propio sistema." },
+  { "difficulty": "hard", "length": "short", "content": "La mecánica cuántica describe el comportamiento de partículas subatómicas mediante funciones de onda ψ cuya evolución sigue la ecuación de Schrödinger: iℏ∂ψ/∂t = Ĥψ." },
+  { "difficulty": "hard", "length": "short", "content": "El análisis sintáctico en lingüística formal se apoya en gramáticas libres de contexto del tipo G = (V, Σ, R, S) para describir la estructura jerárquica de las oraciones." },
+  { "difficulty": "hard", "length": "short", "content": "Los algoritmos de cifrado asimétrico como RSA se basan en la dificultad computacional de factorizar el producto de dos números primos grandes: n = p × q." },
+  { "difficulty": "hard", "length": "short", "content": "La termodinámica establece que la entropía de un sistema aislado no disminuye espontáneamente: ΔS ≥ 0, principio que define la dirección del tiempo en procesos irreversibles." },
+  { "difficulty": "hard", "length": "short", "content": "El debate sobre el libre albedrío enfrenta al determinismo causal con la intuición fenomenológica de la agencia: ¿puede existir responsabilidad moral sin libertad genuina de elección?" },
+  { "difficulty": "hard", "length": "short", "content": "Los mercados financieros exhiben comportamientos no lineales y dependientes del contexto que los modelos gaussianos tradicionales —como el de Black-Scholes— capturan de forma insuficiente." },
+  { "difficulty": "hard", "length": "short", "content": "La neuroplasticidad sináptica, regulada por el mecanismo de potenciación a largo plazo (LTP), constituye la base celular del aprendizaje y la consolidación de la memoria en el hipocampo." },
+  { "difficulty": "hard", "length": "short", "content": "El pensamiento sistémico reconoce que las propiedades emergentes de un conjunto no son reducibles a las propiedades de sus partes: el todo es cualitativamente distinto a la suma." },
+  { "difficulty": "hard", "length": "short", "content": "La distinción entre correlación y causalidad es fundamental en estadística inferencial; la confusión entre ambas conduce a interpretaciones erróneas en investigación clínica y social." },
+  { "difficulty": "hard", "length": "short", "content": "El análisis de complejidad algorítmica clasifica los problemas según su escalabilidad: P, NP, NP-completo y NP-difícil representan clases con implicaciones teóricas y prácticas distintas." },
+  { "difficulty": "hard", "length": "medium", "content": "La inteligencia artificial generativa basada en transformers utiliza mecanismos de atención multi-cabeza para capturar dependencias de largo alcance en secuencias de tokens, lo que le permite generar texto coherente y contextualmente apropiado con una fluidez sin precedentes en la historia del procesamiento del lenguaje natural." },
+  { "difficulty": "hard", "length": "medium", "content": "El concepto de externalidades negativas en economía ambiental justifica la intervención regulatoria cuando los agentes privados no internalizan los costes sociales de sus decisiones: impuestos pigouvianos, permisos de emisión negociables o regulaciones directas son los instrumentos habituales para corregir estos fallos de mercado." },
+  { "difficulty": "hard", "length": "medium", "content": "La topología algebraica estudia las propiedades invariantes de los espacios bajo deformaciones continuas. El grupo fundamental π₁(X, x₀) captura información sobre los lazos no contractibles de un espacio y constituye un potente invariante topológico con aplicaciones en física teórica y robótica." },
+  { "difficulty": "hard", "length": "medium", "content": "Los sistemas operativos modernos implementan la gestión de memoria mediante paginación jerárquica y tablas de páginas multinivel, lo que permite mapear el espacio de direcciones virtual de cada proceso al espacio físico sin fragmentación externa y con una sobrecarga mínima para el procesador." },
+  { "difficulty": "hard", "length": "medium", "content": "La hermenéutica gadameriana postula que toda comprensión implica una fusión de horizontes entre el texto y el intérprete, lo que hace imposible una lectura objetiva o neutra: siempre interpretamos desde nuestra propia tradición, prejuicios y circunstancias históricas concretas." },
+  { "difficulty": "hard", "length": "medium", "content": "La regulación epigenética del genoma incluye la metilación del ADN, las modificaciones postraduccionales de histonas y la acción de ARN no codificantes; estos mecanismos permiten que células con el mismo genotipo adopten fenotipos radicalmente distintos según el contexto de desarrollo o el ambiente externo." },
+  { "difficulty": "hard", "length": "medium", "content": "El protocolo TCP garantiza la entrega ordenada y fiable de datos mediante un mecanismo de ventana deslizante, confirmaciones acumulativas y retransmisión selectiva; el control de congestión basado en AIMD —incremento aditivo, decremento multiplicativo— evita el colapso de la red bajo carga elevada." },
+  { "difficulty": "hard", "length": "medium", "content": "En derecho constitucional, el principio de proporcionalidad exige que cualquier restricción de derechos fundamentales sea idónea para alcanzar el fin perseguido, necesaria por ausencia de alternativas menos gravosas, y proporcional en sentido estricto al ponderar los bienes en conflicto mediante el test tripartito." },
+  { "difficulty": "hard", "length": "medium", "content": "La econometría de panel combina la dimensión transversal y temporal de los datos para controlar la heterogeneidad no observada entre individuos mediante efectos fijos o aleatorios; la prueba de Hausman permite determinar cuál de los dos estimadores es consistente en cada caso particular." },
+  { "difficulty": "hard", "length": "medium", "content": "La fotosíntesis oxigénica divide el agua mediante el fotosistema II liberando O₂, transfiere electrones a través de la cadena transportadora hasta el fotosistema I, y finalmente reduce NADP⁺ a NADPH; la energía almacenada en el gradiente de protones impulsa la ATP-sintasa en el ciclo de Boyer." },
+  { "difficulty": "hard", "length": "long", "content": "La teoría de la relatividad general de Einstein reemplazó la concepción newtoniana de la gravedad como fuerza a distancia por una descripción geométrica del espaciotiempo: la presencia de masa-energía curva el tejido tetradimensional, y los objetos siguen geodésicas en ese espacio curvo. Las ecuaciones de campo Gμν + Λgμν = 8πG/c⁴ · Tμν relacionan la geometría del espaciotiempo con la distribución de energía y momento, con consecuencias experimentalmente verificadas como la precesión de Mercurio, la deflexión de la luz y las ondas gravitacionales." },
+  { "difficulty": "hard", "length": "long", "content": "El análisis del discurso político desde la perspectiva de la teoría crítica examina cómo el lenguaje construye y legitima relaciones de poder, naturaliza ideologías dominantes y marginaliza narrativas alternativas. Los actos de habla performativos —en el sentido de Austin y Searle— no solo describen la realidad sino que la constituyen activamente, lo que convierte al análisis lingüístico en una herramienta indispensable para comprender los mecanismos de hegemonía cultural y dominación simbólica descritos por Gramsci y Bourdieu." },
+  { "difficulty": "hard", "length": "long", "content": "La transición de un paradigma científico a otro, descrita por Thomas Kuhn en La estructura de las revoluciones científicas, no responde a la simple acumulación de evidencia contraria, sino a un proceso social y cognitivo complejo en el que la comunidad científica abandona un conjunto de supuestos, métodos y valores compartidos para adoptar un nuevo marco explicativo. La inconmensurabilidad entre paradigmas implica que los científicos en lados opuestos de una revolución literalmente ven el mundo de manera diferente, lo que hace que el progreso científico no sea lineal sino discontinuo." },
+  { "difficulty": "hard", "length": "long", "content": "La implementación de sistemas distribuidos tolerantes a fallos requiere abordar problemas fundamentales de consenso como el descrito en el Teorema CAP de Brewer: en presencia de particiones de red, un sistema solo puede garantizar consistencia o disponibilidad, pero no ambas simultáneamente. Los algoritmos de consenso como Paxos y Raft gestionan esta tensión mediante líderes elegidos, quórums de mayoría y registros replicados que permiten que el sistema avance incluso cuando algunos nodos fallan o quedan desconectados temporalmente de la red." },
+  { "difficulty": "hard", "length": "long", "content": "El problema mente-cuerpo en filosofía de la mente ha generado posiciones radicalmente diversas: el dualismo cartesiano postula dos sustancias ontológicamente distintas —res cogitans y res extensa— cuya interacción resulta inexplicable; el fisicalismo eliminativo de Churchland niega la existencia de estados mentales irreducibles; el funcionalismo de Putnam define los estados mentales por sus relaciones causales independientemente del sustrato físico; y el panpsiquismo considera que la experiencia subjetiva es una propiedad fundamental de la materia, anterior incluso a la complejidad biológica." }
 ]

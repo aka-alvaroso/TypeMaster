@@ -1,74 +1,87 @@
 [
-  {
-    "difficulty": "easy", "length": "short",
-    "content": "the sun rises in the east and sets in the west every single day without fail"
-  },
-  {
-    "difficulty": "easy", "length": "short",
-    "content": "dogs love to run and play fetch in the park with their owners on warm days"
-  },
-  {
-    "difficulty": "easy", "length": "short",
-    "content": "she reads a new book every week and writes down her favorite lines in a journal"
-  },
-  {
-    "difficulty": "easy", "length": "medium",
-    "content": "every morning before work he makes a cup of coffee and sits by the window to watch the birds in the garden before the rest of the house wakes up"
-  },
-  {
-    "difficulty": "easy", "length": "medium",
-    "content": "the library opens at nine and closes at six on weekdays you can borrow up to ten books at a time and return them by the end of the month"
-  },
-  {
-    "difficulty": "easy", "length": "medium",
-    "content": "last summer we drove across the country and stopped at small towns along the way eating local food and sleeping in cheap motels it was the best trip we ever had"
-  },
-  {
-    "difficulty": "easy", "length": "long",
-    "content": "learning to type fast is a skill that takes time and practice but the effort is worth it because once you can type without looking at the keys your thoughts flow directly onto the screen and you spend less time worrying about the mechanics of writing and more time thinking about what you actually want to say which makes you a better and faster writer overall"
-  },
-  {
-    "difficulty": "easy", "length": "long",
-    "content": "the train left the station at seven in the morning and by noon we were already deep in the countryside watching green fields and small villages pass by through the window the journey took eight hours in total and by the time we arrived everyone was tired but happy to have made the trip instead of flying because you see so much more of the country that way"
-  },
-  {
-    "difficulty": "medium", "length": "short",
-    "content": "Machine learning models don't learn rules; they approximate functions from data, which makes interpretability both crucial and elusive."
-  },
-  {
-    "difficulty": "medium", "length": "short",
-    "content": "Version control isn't just about backup—it's a communication tool: every commit message is a note to your future self and your teammates."
-  },
-  {
-    "difficulty": "medium", "length": "short",
-    "content": "The difference between a junior and senior developer often isn't knowledge; it's knowing which trade-offs to make and when to make them."
-  },
-  {
-    "difficulty": "medium", "length": "medium",
-    "content": "Microservices promise scalability and independent deployability, but they introduce distributed systems complexity: network failures, eventual consistency, and the challenge of tracing a single request across dozens of services. The right architecture depends entirely on your team size, traffic patterns, and tolerance for operational overhead."
-  },
-  {
-    "difficulty": "medium", "length": "medium",
-    "content": "The open-source ecosystem thrives on contribution, but sustainability remains a challenge. Projects critical to global infrastructure are often maintained by a handful of unpaid volunteers. The Log4Shell vulnerability in 2021 exposed how deeply a single library can be embedded across thousands of systems, and how fragile that dependency chain can be."
-  },
-  {
-    "difficulty": "medium", "length": "long",
-    "content": "The history of programming languages is a history of abstraction. From raw machine code to assembly, from C to Python, each generation of languages raised the level of abstraction to let developers focus on what to compute rather than how the hardware executes it. Yet every abstraction has a cost: in performance, in predictability, or in the loss of control that sometimes matters enormously in systems programming, embedded devices, or real-time applications where milliseconds determine correctness."
-  },
-  {
-    "difficulty": "hard", "length": "short",
-    "content": "Amdahl's Law states: S(n) = 1 / [(1 − p) + p/n], where p is the parallelizable fraction—a sobering limit on multi-core speedup."
-  },
-  {
-    "difficulty": "hard", "length": "short",
-    "content": "IEEE 754 double-precision floating-point: 1 sign bit, 11 exponent bits (bias 1023), 52 mantissa bits—explaining why 0.1 + 0.2 ≠ 0.3."
-  },
-  {
-    "difficulty": "hard", "length": "medium",
-    "content": "The Byzantine Generals Problem, formalized by Lamport, Shostak, and Pease in 1982, asks: how can distributed nodes reach consensus when some may send contradictory messages? Practical Byzantine Fault Tolerance (PBFT) solves it for f faulty nodes among 3f + 1 total, at the cost of O(n²) message complexity—a trade-off that makes it unsuitable for large-scale public blockchains without significant modification."
-  },
-  {
-    "difficulty": "hard", "length": "long",
-    "content": "Rust's ownership system enforces memory safety without a garbage collector by tracking, at compile time, which variable \"owns\" each piece of heap-allocated data and ensuring that ownership is transferred—\"moved\"—rather than shared carelessly. Borrowing rules guarantee that either one mutable reference or any number of immutable references exist at any point, but never both simultaneously. This prevents data races at the type level, eliminating an entire class of concurrency bugs that plague C and C++ codebases and cost the industry billions of dollars annually in security vulnerabilities and production outages."
-  }
+  { "difficulty": "easy", "length": "short", "content": "the sun rises in the east and sets in the west every single day without fail" },
+  { "difficulty": "easy", "length": "short", "content": "my dog loves to play fetch in the park every morning before breakfast" },
+  { "difficulty": "easy", "length": "short", "content": "she reads a book every night before going to bed and loves it" },
+  { "difficulty": "easy", "length": "short", "content": "the kids are playing in the garden while the parents sit and relax" },
+  { "difficulty": "easy", "length": "short", "content": "we buy fresh bread at the bakery every morning on the way to school" },
+  { "difficulty": "easy", "length": "short", "content": "the train leaves at nine and arrives at the station by noon" },
+  { "difficulty": "easy", "length": "short", "content": "he likes to cook simple meals for his family on sunday afternoons" },
+  { "difficulty": "easy", "length": "short", "content": "the cat sits by the window and watches the birds fly outside" },
+  { "difficulty": "easy", "length": "short", "content": "i walk to work every day because the office is very close to my house" },
+  { "difficulty": "easy", "length": "short", "content": "the lake near our town is calm and clear and perfect for swimming" },
+  { "difficulty": "easy", "length": "short", "content": "we had a great time at the beach last summer with all our friends" },
+  { "difficulty": "easy", "length": "short", "content": "learning new words every day is a great way to improve your vocabulary" },
+  { "difficulty": "easy", "length": "medium", "content": "every morning i wake up early to go for a run in the park before the rest of the city wakes up and it feels amazing" },
+  { "difficulty": "easy", "length": "medium", "content": "my grandmother taught me how to bake bread from scratch and now i make it every weekend for the whole family to enjoy" },
+  { "difficulty": "easy", "length": "medium", "content": "the library in our neighborhood has thousands of books and anyone can borrow up to ten at a time for free" },
+  { "difficulty": "easy", "length": "medium", "content": "we planted a small vegetable garden in the backyard last spring and now we harvest tomatoes peppers and herbs every week" },
+  { "difficulty": "easy", "length": "medium", "content": "my favorite thing about winter is sitting by the fireplace with a hot cup of tea and a good book on a rainy afternoon" },
+  { "difficulty": "easy", "length": "medium", "content": "the school organized a trip to the science museum last friday and all the students had a wonderful and educational time" },
+  { "difficulty": "easy", "length": "medium", "content": "riding a bicycle is not only good for the environment but also a great way to stay healthy and explore your city" },
+  { "difficulty": "easy", "length": "medium", "content": "when i moved to this city three years ago i did not know anyone but now i have many good friends and feel at home here" },
+  { "difficulty": "easy", "length": "medium", "content": "cooking together as a family is one of the best ways to spend quality time and teach children important life skills" },
+  { "difficulty": "easy", "length": "medium", "content": "the farmers market opens every saturday morning and sells fresh local produce eggs honey and homemade jams and cheeses" },
+  { "difficulty": "easy", "length": "long", "content": "growing up in a small town meant that everyone knew each other and there was always a strong sense of community. we would gather in the town square on summer evenings to share food and music and the children would run around freely while the adults talked and laughed under the warm light of the streetlamps" },
+  { "difficulty": "easy", "length": "long", "content": "learning to swim as an adult can feel intimidating but it is never too late to start. with patient instruction and regular practice most people can become comfortable in the water within a few weeks. the key is to go at your own pace and not compare yourself to others who have been swimming since they were very young" },
+  { "difficulty": "easy", "length": "long", "content": "one of the best habits you can develop is writing in a journal every day. it does not have to be long or perfectly written just a few sentences about what happened how you felt and what you are looking forward to. over time you will have a record of your life that you can look back on and treasure for years to come" },
+  { "difficulty": "easy", "length": "long", "content": "the mountains in the north of the country are covered in snow for most of the year and attract thousands of visitors who come to ski hike and enjoy the breathtaking scenery. in the summer the snow melts and the valleys fill with wildflowers making it one of the most beautiful landscapes you will ever see in your life" },
+  { "difficulty": "easy", "length": "long", "content": "volunteering at the local shelter on weekends has been one of the most rewarding experiences of my life. you meet people from all walks of life learn to appreciate what you have and make a real difference in the lives of those who are struggling. even a few hours of your time can have a lasting positive impact on your community" },
+  { "difficulty": "easy", "length": "long", "content": "the old bookshop on the corner of the street has been there for over fifty years. the shelves go all the way up to the ceiling and are packed with second hand books on every possible topic. the owner knows every single book and can always recommend the perfect one no matter what you are looking for or what mood you are in" },
+
+  { "difficulty": "medium", "length": "short", "content": "Remote work has fundamentally altered the boundaries between professional and personal life, creating new challenges for millions of employees worldwide." },
+  { "difficulty": "medium", "length": "short", "content": "Artificial intelligence is reshaping industries at an unprecedented pace, raising urgent questions about the future of employment and human creativity." },
+  { "difficulty": "medium", "length": "short", "content": "The global push for renewable energy sources reflects a growing consensus that fossil fuels are no longer a viable long-term solution." },
+  { "difficulty": "medium", "length": "short", "content": "Critical thinking skills are increasingly valued in the workplace as automation handles more routine cognitive tasks previously done by humans." },
+  { "difficulty": "medium", "length": "short", "content": "Ocean acidification poses a serious threat to marine biodiversity, particularly affecting coral reef ecosystems and the species that depend on them." },
+  { "difficulty": "medium", "length": "short", "content": "The relationship between sleep quality and cognitive performance has been extensively studied, with consistent evidence pointing to a strong correlation." },
+  { "difficulty": "medium", "length": "short", "content": "Behavioral economics has challenged the rational actor model by demonstrating how cognitive biases systematically influence human decision-making." },
+  { "difficulty": "medium", "length": "short", "content": "Urban planning must increasingly account for climate resilience, designing cities that can withstand extreme weather events and rising sea levels." },
+  { "difficulty": "medium", "length": "short", "content": "The democratization of information through the internet has created both unprecedented access to knowledge and serious challenges around misinformation." },
+  { "difficulty": "medium", "length": "short", "content": "Multilingualism is not merely a practical skill but a cognitive advantage, with research suggesting that bilingual individuals exhibit enhanced executive function." },
+  { "difficulty": "medium", "length": "short", "content": "Supply chain disruptions during the pandemic revealed the fragility of just-in-time manufacturing models built on global interdependencies." },
+  { "difficulty": "medium", "length": "short", "content": "The ethics of genetic engineering require careful deliberation, balancing the potential to eliminate heritable diseases against risks of unintended consequences." },
+  { "difficulty": "medium", "length": "medium", "content": "The human microbiome, comprising trillions of microorganisms living in and on the body, plays a crucial role in digestion, immunity, and even mental health, challenging the traditional view of bacteria as primarily pathogenic organisms that must be eliminated." },
+  { "difficulty": "medium", "length": "medium", "content": "Documentary filmmaking has evolved dramatically since the early twentieth century, moving from purely observational formats toward more personal, experimental, and politically engaged approaches that blur the boundary between fact and interpretation." },
+  { "difficulty": "medium", "length": "medium", "content": "The circular economy model proposes a systemic alternative to the linear take-make-dispose approach, designing products for longevity, reuse, and recovery so that waste is minimized and materials remain in productive use indefinitely." },
+  { "difficulty": "medium", "length": "medium", "content": "Cognitive load theory suggests that effective learning requires presenting information in ways that do not overwhelm the limited capacity of working memory, using principles such as segmentation, modality, and interactivity to optimize instruction." },
+  { "difficulty": "medium", "length": "medium", "content": "The rise of platform economies has created a new class of economic actors who are neither traditional employees nor independent entrepreneurs, occupying a legally ambiguous space that existing labor regulations were not designed to address." },
+  { "difficulty": "medium", "length": "medium", "content": "Archaeological discoveries continuously revise our understanding of human prehistory, pushing back the dates of complex social behavior, artistic expression, and long-distance trade by tens of thousands of years beyond previous estimates." },
+  { "difficulty": "medium", "length": "medium", "content": "The concept of emotional intelligence, popularized by Daniel Goleman in the 1990s, argues that the ability to perceive, use, understand, and manage emotions is at least as important as cognitive intelligence in determining personal and professional success." },
+  { "difficulty": "medium", "length": "medium", "content": "Antibiotic resistance represents one of the most serious public health threats of our time, driven by overuse in both human medicine and agriculture, threatening to render routine surgical procedures and common infections potentially fatal once again." },
+  { "difficulty": "medium", "length": "medium", "content": "Modern architectural design increasingly integrates passive energy strategies such as thermal mass, natural ventilation, and strategic shading to reduce a building's carbon footprint without sacrificing comfort or aesthetic quality." },
+  { "difficulty": "medium", "length": "medium", "content": "The philosophical tradition of stoicism, originating in ancient Greece, has experienced a remarkable revival in the twenty-first century as people seek practical frameworks for managing uncertainty, adversity, and the limits of personal control." },
+  { "difficulty": "medium", "length": "long", "content": "The neuroscience of creativity has moved beyond the simplistic left-brain versus right-brain dichotomy to reveal a more nuanced picture involving three large-scale brain networks: the default mode network, which generates spontaneous associations; the executive control network, which evaluates and refines ideas; and the salience network, which switches attention between internal and external stimuli. Effective creative thinking appears to depend on the dynamic interplay of all three rather than the dominance of any single one." },
+  { "difficulty": "medium", "length": "long", "content": "The debate over universal basic income has gained renewed urgency in the context of rapid automation. Proponents argue that decoupling income from employment would reduce poverty, improve mental health, and liberate individuals to pursue education, caregiving, and entrepreneurship. Critics counter that it would reduce work incentives, prove fiscally unsustainable, and fail to address deeper structural inequalities that a targeted social safety net could address more efficiently and equitably." },
+  { "difficulty": "medium", "length": "long", "content": "Climate migration is reshaping geopolitical dynamics in ways that international institutions were not designed to manage. As rising sea levels, prolonged droughts, and intensifying storms render certain regions uninhabitable, tens of millions of people are expected to be displaced over the coming decades. The legal and humanitarian frameworks currently governing refugees were crafted in a post-World War II context and do not adequately recognize environmental displacement as a legitimate basis for protection." },
+  { "difficulty": "medium", "length": "long", "content": "The history of the internet is not simply a story of technological progress but one of contested visions about what kind of network it should be. The original protocols were designed by academic researchers who prioritized openness, interoperability, and decentralization. As commercial interests came to dominate the web, these values were gradually eroded, giving rise to the centralized platform model that now controls most of the world's digital communication and commerce." },
+  { "difficulty": "medium", "length": "long", "content": "Personalized medicine promises to transform healthcare by tailoring treatments to individual genetic profiles rather than relying on statistical averages derived from population studies. While the potential is enormous — predicting drug responses, identifying hereditary risks early, and designing targeted therapies — the practical implementation faces significant challenges in data privacy, algorithmic bias, health equity, and the sheer complexity of translating genomic insights into actionable clinical decisions." },
+  { "difficulty": "medium", "length": "long", "content": "The concept of cultural heritage encompasses not only physical monuments and artifacts but also intangible elements such as oral traditions, performing arts, rituals, and traditional craftsmanship. UNESCO's efforts to document and protect this intangible heritage reflect a growing recognition that cultural diversity is as important to human flourishing as biodiversity is to ecological resilience, and that its loss represents an irreversible impoverishment of humanity's collective identity." },
+
+  { "difficulty": "hard", "length": "short", "content": "Gödel's incompleteness theorems (1931) established that within any consistent formal system capable of expressing elementary arithmetic, there exist true statements that cannot be proved within the system itself." },
+  { "difficulty": "hard", "length": "short", "content": "The Heisenberg uncertainty principle — ΔxΔp ≥ ℏ/2 — is not a limitation of measurement technology but a fundamental feature of quantum mechanical systems: position and momentum cannot both be precisely defined simultaneously." },
+  { "difficulty": "hard", "length": "short", "content": "Epigenetic inheritance challenges the strict Mendelian model by demonstrating that environmentally acquired modifications to gene expression patterns — via methylation and histone acetylation — can be transmitted across generations." },
+  { "difficulty": "hard", "length": "short", "content": "Byzantine fault-tolerant consensus algorithms must reach agreement among distributed nodes even when up to f of 3f+1 nodes behave arbitrarily, including sending conflicting messages to different peers simultaneously." },
+  { "difficulty": "hard", "length": "short", "content": "The Black-Scholes-Merton model prices European options under assumptions of log-normal price dynamics, constant volatility, and no-arbitrage conditions, yielding the PDE: ∂V/∂t + ½σ²S²∂²V/∂S² + rS∂V/∂S − rV = 0." },
+  { "difficulty": "hard", "length": "short", "content": "Foucauldian discourse analysis examines how power-knowledge regimes define what can be said, thought, and practiced in a given historical period, constituting subjects rather than merely constraining pre-existing ones." },
+  { "difficulty": "hard", "length": "short", "content": "CRISPR-Cas9 gene editing exploits the bacterial adaptive immune system: guide RNA directs the Cas9 endonuclease to a complementary genomic locus where it introduces a double-strand break repaired by HDR or NHEJ pathways." },
+  { "difficulty": "hard", "length": "short", "content": "The Riemann hypothesis, one of the Millennium Prize Problems, conjectures that all non-trivial zeros of ζ(s) lie on the critical line Re(s) = ½ — a claim with profound implications for the distribution of prime numbers." },
+  { "difficulty": "hard", "length": "short", "content": "Sparse transformers achieve sub-quadratic attention complexity by restricting each token's receptive field to a learned subset of positions, enabling tractable self-attention over sequences of tens of thousands of tokens." },
+  { "difficulty": "hard", "length": "short", "content": "Macroeconomic models incorporating rational expectations — such as the Dynamic Stochastic General Equilibrium framework — assume agents optimize intertemporally subject to constraints, with equilibrium defined by market-clearing conditions." },
+  { "difficulty": "hard", "length": "short", "content": "The second law of thermodynamics, formulated in terms of statistical mechanics by Boltzmann, defines entropy as S = k_B ln Ω, where Ω is the number of microstates consistent with a given macrostate." },
+  { "difficulty": "hard", "length": "short", "content": "Topological data analysis employs persistent homology to detect multi-scale geometric structure in high-dimensional point clouds, with the persistence diagram encoding the birth and death of connected components, loops, and voids." },
+  { "difficulty": "hard", "length": "medium", "content": "Transformer-based large language models trained via next-token prediction on internet-scale corpora exhibit emergent capabilities — including in-context learning, chain-of-thought reasoning, and few-shot generalization — that were not explicitly optimized for and that scale non-linearly with model size and training compute according to empirical scaling laws." },
+  { "difficulty": "hard", "length": "medium", "content": "The renormalization group in quantum field theory provides a systematic framework for handling ultraviolet divergences by integrating out high-energy degrees of freedom and tracking how coupling constants evolve with the energy scale — a process that reveals universality classes and fixed points governing macroscopic critical phenomena." },
+  { "difficulty": "hard", "length": "medium", "content": "Constitutional judicial review occupies an inherently counter-majoritarian position in democratic theory: an unelected court invalidates legislation passed by elected representatives, a tension that theorists from Hamilton to Dworkin have sought to resolve through conceptions of fundamental rights that constrain the tyranny of transient majorities." },
+  { "difficulty": "hard", "length": "medium", "content": "The leaky competing accumulator model of perceptual decision-making posits that evidence for competing hypotheses is integrated over time by separate neural accumulators with mutual inhibition and self-excitation, with a decision triggered when one accumulator's activation crosses a threshold that trades speed for accuracy." },
+  { "difficulty": "hard", "length": "medium", "content": "Post-Keynesian economics rejects the neoclassical synthesis by emphasizing fundamental uncertainty, the endogenous creation of money by commercial banks, path dependence in economic dynamics, and the inherent instability of financial markets as described by Minsky's financial instability hypothesis." },
+  { "difficulty": "hard", "length": "medium", "content": "Graph neural networks extend deep learning to non-Euclidean data by propagating feature representations across adjacency structures via message-passing operations: h_v^(l+1) = σ(W^(l) · AGG({h_u^(l) : u ∈ N(v) ∪ {v}})), enabling tasks like node classification, link prediction, and graph-level property regression." },
+  { "difficulty": "hard", "length": "medium", "content": "The SARS-CoV-2 spike protein binds the ACE2 receptor via its receptor-binding domain, triggering membrane fusion and viral entry; mRNA vaccines encode a stabilized prefusion conformation of this spike using proline substitutions at K986P and V987P to elicit neutralizing antibody responses without requiring live virus." },
+  { "difficulty": "hard", "length": "medium", "content": "Phenomenological sociology, developed by Berger and Luckmann following Schutz's appropriation of Husserlian phenomenology, argues that social reality is a human construction continuously maintained through typification, institutionalization, and legitimation — processes through which the contingent appears natural and the constructed appears given." },
+  { "difficulty": "hard", "length": "medium", "content": "Formal verification of concurrent software uses model checking tools like TLA+ or Spin to exhaustively explore the state space of a system and verify temporal logic properties expressed as LTL or CTL formulas, detecting race conditions, deadlocks, and safety invariant violations that testing alone cannot reliably uncover." },
+  { "difficulty": "hard", "length": "medium", "content": "The efficient market hypothesis in its semi-strong form asserts that asset prices fully reflect all publicly available information, implying that systematic alpha generation through fundamental analysis is impossible — a claim that behavioral anomalies like momentum, value, and low volatility premia empirically challenge without definitively refuting." },
+  { "difficulty": "hard", "length": "long", "content": "Einstein's general theory of relativity describes gravity not as a force but as the curvature of spacetime produced by the distribution of mass and energy, encoded in the field equations Gμν + Λgμν = (8πG/c⁴)Tμν. The left side describes geometry via the Einstein tensor; the right side describes matter-energy via the stress-energy tensor. Predictions of the theory — including gravitational lensing, time dilation near massive bodies, perihelion precession of Mercury, and gravitational waves detected by LIGO — have been confirmed with extraordinary precision, yet reconciling general relativity with quantum mechanics remains one of the deepest unsolved problems in theoretical physics." },
+  { "difficulty": "hard", "length": "long", "content": "Habermas's theory of communicative action distinguishes between strategic action, oriented toward influencing others' behavior, and communicative action, oriented toward reaching mutual understanding through argumentation governed by validity claims of truth, rightness, and sincerity. He argues that the colonization of the lifeworld — the background of shared meanings and practices — by the systemic imperatives of money and power distorts communicative rationality and produces pathologies of modernity that cannot be resolved by purely technical or market mechanisms." },
+  { "difficulty": "hard", "length": "long", "content": "The computational complexity class NP contains all decision problems whose solutions can be verified in polynomial time by a deterministic Turing machine. The P vs NP question — whether every problem in NP can also be solved in polynomial time — is the central open problem of theoretical computer science. If P = NP, most cryptographic protocols would be broken and a wide class of optimization problems would become tractable; the overwhelming consensus among researchers is that P ≠ NP, but no proof has been found, and the Clay Mathematics Institute has offered one million dollars for a resolution." },
+  { "difficulty": "hard", "length": "long", "content": "The concept of technoscience, developed by Bruno Latour and others in the sociology of scientific knowledge, challenges the traditional demarcation between pure science and its technological applications by arguing that the two are always already entangled in networks of human and non-human actors — instruments, institutions, funding agencies, and natural entities — whose stabilization produces what we retrospectively call facts. This actor-network theory dissolves the distinction between social and natural explanations, treating both as outcomes of heterogeneous associations rather than as pre-existing categories." },
+  { "difficulty": "hard", "length": "long", "content": "Adaptive immune responses depend on the clonal selection and expansion of lymphocytes bearing antigen-specific receptors generated through V(D)J recombination — a somatic process of combinatorial diversity amplified by junctional diversity and somatic hypermutation in germinal centers. The resulting repertoire enables recognition of virtually any antigen; central and peripheral tolerance mechanisms involving clonal deletion, anergy, and regulatory T cells prevent this system from generating autoimmune responses while preserving responsiveness to foreign antigens — a balance whose disruption underlies a wide spectrum of autoimmune diseases." }
 ]
