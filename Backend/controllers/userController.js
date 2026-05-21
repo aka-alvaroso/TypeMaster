@@ -108,7 +108,7 @@ const getUserData = async (req, res) => {
 
 const updateUserData = async (req, res) => {
   try {
-    const { username, imageURL } = req.body;
+    const { username, imageURL, email, password } = req.body;
 
     const user = await prisma.user.findUnique({ where: { username } });
 
@@ -116,8 +116,13 @@ const updateUserData = async (req, res) => {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    await prisma.user.update({ where: { username }, data: { imageURL } });
-    res.status(200).json({ message: 'Imagen actualizada correctamente' });
+    const data = {};
+    if (imageURL)  data.imageURL = imageURL;
+    if (email)     data.email    = email;
+    if (password)  data.password = bcrypt.hashSync(password, 10);
+
+    await prisma.user.update({ where: { username }, data });
+    res.status(200).json({ message: 'Datos actualizados correctamente' });
 
   } catch (e) {
     console.error('Error al editar el usuario:', e);

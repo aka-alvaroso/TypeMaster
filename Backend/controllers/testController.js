@@ -58,4 +58,26 @@ const getTest = async (req, res) => {
   }
 };
 
-module.exports = { saveTest, getUserTests, getTest };
+const getGlobalStats = async (req, res) => {
+  try {
+    const [totalTests, timeAgg, accuracyAgg, users] = await Promise.all([
+      prisma.test.count(),
+      prisma.test.aggregate({ _sum: { time: true } }),
+      prisma.test.aggregate({ _avg: { accuracy: true } }),
+      prisma.user.count(),
+    ]);
+
+    const totalSeconds = timeAgg._sum.time ?? 0;
+    const totalHours   = Math.round(totalSeconds / 3600);
+    const avgAccuracy  = accuracyAgg._avg.accuracy != null
+      ? Math.round(accuracyAgg._avg.accuracy)
+      : null;
+
+    res.json({ totalTests, totalHours, avgAccuracy, totalUsers: users });
+  } catch (e) {
+    console.error('Error al obtener estadísticas globales:', e);
+    res.status(500).json({ message: 'Error al obtener estadísticas globales' });
+  }
+};
+
+module.exports = { saveTest, getUserTests, getTest, getGlobalStats };

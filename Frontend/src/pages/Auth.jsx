@@ -1,15 +1,54 @@
-﻿import { useState, useEffect } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import axios from 'axios';
 import LoginForm from '../components/LoginForm/LoginForm';
 import RegisterForm from '../components/RegisterForm/RegisterForm';
 
-const STATS = [
-  { value: '24 800+', label: 'tests completados' },
-  { value: '310 h',   label: 'escritas en total'  },
-  { value: '5',       label: 'lenguajes'           },
-  { value: '98%',     label: 'precisión promedio'  },
-];
+const DURATION = 1200; // ms
+
+const useCountUp = (target) => {
+  const [display, setDisplay] = useState(null);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    if (target == null) { setDisplay(null); return; }
+    const start = performance.now();
+    const tick = (now) => {
+      const progress = Math.min((now - start) / DURATION, 1);
+      // ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      setDisplay(current);
+      if (progress < 1) rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [target]);
+
+  return display;
+};
+
+const fmt = (n) => n == null ? null : n.toLocaleString('es-ES');
+
+const AnimatedStat = ({ target, suffix = '', label, delay, fixed = false }) => {
+  const counted = useCountUp(fixed ? null : target);
+  const display = fixed ? target : (counted != null ? fmt(counted) : '—');
+
+  return (
+    <motion.div
+      className="bg-white/10 p-4"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3, delay, ease: 'easeOut' }}
+    >
+      <p className="text-xl font-medium tabular-nums">
+        {display}{!fixed && counted != null ? suffix : ''}
+      </p>
+      <p className="text-white/55 text-xs mt-0.5">{label}</p>
+    </motion.div>
+  );
+};
 
 const Logo = ({ className = 'w-7', fill = 'fill-kp-accent' }) => (
   <svg viewBox="529 728 789 848" className={`${className} h-auto ${fill}`} aria-label="logo">
@@ -23,10 +62,17 @@ const Auth = () => {
   const navigate = useNavigate();
   const [tab, setTab] = useState('login');
   const [dir, setDir] = useState(1);
+  const [stats, setStats] = useState(null);
 
   useEffect(() => {
     if (sessionStorage.getItem('loggedIn') === 'true') navigate('/');
   }, [navigate]);
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_API_URL}/test/stats`)
+      .then(r => setStats(r.data))
+      .catch(() => {});
+  }, []);
 
   const switchTab = (id) => {
     setDir(id === 'register' ? 1 : -1);
@@ -67,18 +113,10 @@ const Auth = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
         >
-          {STATS.map(({ value, label }, i) => (
-            <motion.div
-              key={label}
-              className="bg-white/10 p-4"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.25 + i * 0.06, ease: 'easeOut' }}
-            >
-              <p className="text-xl font-medium">{value}</p>
-              <p className="text-white/55 text-xs mt-0.5">{label}</p>
-            </motion.div>
-          ))}
+          <AnimatedStat target={stats?.totalTests}   label="tests completados" delay={0.25} />
+          <AnimatedStat target={stats?.totalHours}   label="horas escritas"     delay={0.31} suffix=" h" />
+          <AnimatedStat target={5}                   label="lenguajes"          delay={0.37} fixed />
+          <AnimatedStat target={stats?.avgAccuracy}  label="precisión promedio" delay={0.43} suffix="%" />
         </motion.div>
       </div>
 

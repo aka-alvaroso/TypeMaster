@@ -55,12 +55,12 @@ const TestPreview = ({ sound, setSound }) => {
             <div className="w-full flex flex-col items-center gap-4">
               <p className="font-medium text-2xl text-left w-4/6">Resultados</p>
               <div className="w-4/6 grid grid-cols-3 gap-3">
-                <StatCard label="Puntuación" value={test.results.score} unit="pts." />
-                <StatCard label="Velocidad" value={test.results.speed} unit="CPM" />
-                <StatCard label="Precisión" value={test.results.accuracy} unit="%" />
-                <StatCard label="Errores" value={test.results.numErrors} unit="err." />
-                <StatCard label="Tiempo" value={test.results.time} unit="seg." />
-                <StatCard label="Caracteres" value={test.results.numCharacters} unit="car." />
+                <StatCard label="Puntuación" value={test.score} unit="pts." />
+                <StatCard label="Velocidad" value={test.speed} unit="CPM" />
+                <StatCard label="Precisión" value={test.accuracy} unit="%" />
+                <StatCard label="Errores" value={test.numErrors} unit="err." />
+                <StatCard label="Tiempo" value={test.time} unit="seg." />
+                <StatCard label="Caracteres" value={test.numCharacters} unit="car." />
               </div>
             </div>
           </section>
@@ -72,10 +72,10 @@ const TestPreview = ({ sound, setSound }) => {
               {[
                 ['Jugador', test.player, true],
                 ['Fecha', test.date, false],
-                ['Modo', { practice: 'Práctica', timed: 'Cronómetro', competitive: 'Competitivo' }[test.settings.mode], false],
-                ['Tipo', test.settings.type === 'text' ? 'Texto' : 'Código', false],
-                ['Dificultad', { easy: 'Fácil', medium: 'Medio', hard: 'Difícil' }[test.settings.difficulty], false],
-                ['Lenguaje', LANG_LABELS[test.settings.language] ?? test.settings.language, false],
+                ['Modo', { practice: 'Práctica', timed: 'Cronómetro', competitive: 'Competitivo' }[test.mode], false],
+                ['Tipo', test.type === 'text' ? 'Texto' : 'Código', false],
+                ['Dificultad', { easy: 'Fácil', medium: 'Medio', hard: 'Difícil' }[test.difficulty], false],
+                ['Lenguaje', LANG_LABELS[test.language] ?? test.language, false],
               ].map(([label, value, isLink]) => (
                 <div key={label} className="flex items-center gap-2 text-sm">
                   <span className="bg-kp-accent/20 text-kp-text px-2 py-1 rounded font-medium min-w-24">{label}</span>
