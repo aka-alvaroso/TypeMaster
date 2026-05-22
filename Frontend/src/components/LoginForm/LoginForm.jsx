@@ -1,10 +1,12 @@
 import axios from '../../axiosConfig';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 
 const LoginForm = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [error, setError] = useState(false);
 
@@ -25,16 +27,16 @@ const LoginForm = () => {
         navigate('/');
       }
     } catch (err) {
-      if (err.status === 401 || err.status === 404) setError('Credenciales inválidas');
+      if (err.status === 401 || err.status === 404) setError(t('login.invalidCredentials'));
     }
   };
 
   return (
     <form className="space-y-5" onSubmit={handleSubmit}>
-      <Input type="email" id="login-email" placeholder="Email" />
-      <Input type="password" id="login-password" placeholder="Contraseña" />
+      <Input type="email" id="login-email" placeholder={t('login.emailPlaceholder')} />
+      <Input type="password" id="login-password" placeholder={t('login.passwordPlaceholder')} />
       <Button type="submit" variant="outline" className="w-full justify-center mt-2">
-        Iniciar sesión
+        {t('login.submit')}
       </Button>
       {error && <p className="text-red-500 text-sm">{error}</p>}
     </form>

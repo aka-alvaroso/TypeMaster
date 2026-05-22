@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useCallback, useState } from 'react';
 import { RotateCcw } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import Navbar from '../components/Navbar/Navbar';
 import GameSelector from '../components/GameSelector/GameSelector';
@@ -19,6 +20,7 @@ const INITIAL_SAVE_STATUS = { user: false, test: false };
 
 
 const Home = ({ sound, setSound }) => {
+  const { t } = useTranslation();
   const { timerDisplay } = useSettings();
   const [isRunning, setIsRunning] = useState(false);
   const [gameSettings, setGameSettings] = useState({
@@ -66,9 +68,9 @@ const Home = ({ sound, setSound }) => {
   const hint = (
     <p className="text-sm text-kp-muted">
       <RotateCcw size={14} className="mr-1 inline" />
-      Presiona{' '}
-      <kbd className="bg-kp-surface border border-kp-border px-2 py-0.5 rounded text-kp-text text-xs">Escape</kbd>
-      {' '}para reiniciar
+      {t('home.pressEscape')}
+      <kbd className="bg-kp-surface border border-kp-border px-2 py-0.5 rounded text-kp-text text-xs">{t('home.escape')}</kbd>
+      {t('home.toRestart')}
     </p>
   );
 

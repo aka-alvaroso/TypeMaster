@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import Navbar from '../components/Navbar/Navbar';
 import FadeUp from '../components/ui/FadeUp';
 
-const HEADERS = ['Modo', 'Puntuación', 'Dificultad', 'Tipo', 'Velocidad', 'Precisión', 'Fecha'];
-
 const History = ({ sound, setSound }) => {
+  const { t } = useTranslation();
   const { username } = useParams();
   const [history, setHistory] = useState([]);
 
@@ -25,13 +25,18 @@ const History = ({ sound, setSound }) => {
     fetchHistory();
   }, [username]);
 
+  const HEADERS = [
+    t('history.mode'), t('history.score'), t('history.difficulty'),
+    t('history.type'), t('history.speed'), t('history.accuracy'), t('history.date'),
+  ];
+
   return (
     <div className="h-screen bg-kp-bg text-kp-text w-screen flex flex-col items-center">
       <Navbar sound={sound} setSound={setSound} />
 
       <FadeUp className="w-full max-w-4xl px-6 pt-8 flex flex-col gap-6">
         <div>
-          <p className="text-xs text-kp-muted uppercase tracking-widest mb-1">Historial de partidas</p>
+          <p className="text-xs text-kp-muted uppercase tracking-widest mb-1">{t('history.title')}</p>
           <h1 className="text-2xl font-medium text-kp-text flex items-center gap-2">
             <Link to={`/profile/${username}`} className="hover:text-kp-accent transition-colors">
               {username}
@@ -56,10 +61,14 @@ const History = ({ sound, setSound }) => {
                   key={index}
                   className="w-full flex items-center px-4 py-3 text-sm text-kp-text hover:bg-kp-border/30 transition-colors"
                 >
-                  <p className="w-1/6">{test.mode === 'practice' ? 'Práctica' : test.mode === 'timed' ? 'Cronómetro' : 'Competitivo'}</p>
+                  <p className="w-1/6">
+                    {test.mode === 'practice' ? t('history.practice') : test.mode === 'timed' ? t('history.stopwatch') : t('history.competitive')}
+                  </p>
                   <p className="w-1/6">{test.score}</p>
-                  <p className="w-1/6">{test.difficulty === 'easy' ? 'Fácil' : test.difficulty === 'medium' ? 'Medio' : 'Difícil'}</p>
-                  <p className="w-1/6">{test.type === 'text' ? 'Texto' : 'Código'}</p>
+                  <p className="w-1/6">
+                    {test.difficulty === 'easy' ? t('history.easy') : test.difficulty === 'medium' ? t('history.medium') : t('history.hard')}
+                  </p>
+                  <p className="w-1/6">{test.type === 'text' ? t('history.text') : t('history.code')}</p>
                   <p className="w-1/6">{test.speed} cpm</p>
                   <p className="w-1/6">{test.accuracy} %</p>
                   <p className="w-2/6 text-kp-muted">{test.date}</p>
@@ -68,7 +77,7 @@ const History = ({ sound, setSound }) => {
             </div>
           </section>
         ) : (
-          <p className="text-kp-muted">No hay registros</p>
+          <p className="text-kp-muted">{t('history.noRecords')}</p>
         )}
       </FadeUp>
     </div>

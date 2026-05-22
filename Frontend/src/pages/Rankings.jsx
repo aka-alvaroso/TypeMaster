@@ -3,25 +3,30 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import Navbar from '../components/Navbar/Navbar';
 import Button from '../components/ui/Button';
 import FadeUp from '../components/ui/FadeUp';
 
-const ORDER_OPTIONS = [
-  { key: 'bestScore',    label: 'Mejor puntuación' },
-  { key: 'bestSpeed',    label: 'Mejor velocidad' },
-  { key: 'avgScore',     label: 'Puntuación media' },
-  { key: 'avgSpeed',     label: 'Velocidad media' },
-  { key: 'avgAccuracy',  label: 'Precisión media' },
-  { key: 'totalTests',   label: 'Tests jugados' },
-];
-
-const COL_HEADERS = ['#', 'Usuario', 'Mejor pts.', 'Mejor vel.', 'Media pts.', 'Media vel.', 'Precisión', 'Tests'];
-
 const Rankings = ({ sound, setSound }) => {
+  const { t } = useTranslation();
   const [ranking, setRanking] = useState([]);
   const [orderBy, setOrderBy] = useState('bestScore');
+
+  const ORDER_OPTIONS = [
+    { key: 'bestScore',   label: t('rankings.orderBestScore') },
+    { key: 'bestSpeed',   label: t('rankings.orderBestSpeed') },
+    { key: 'avgScore',    label: t('rankings.orderAvgScore') },
+    { key: 'avgSpeed',    label: t('rankings.orderAvgSpeed') },
+    { key: 'avgAccuracy', label: t('rankings.orderAvgAccuracy') },
+    { key: 'totalTests',  label: t('rankings.orderTotalTests') },
+  ];
+
+  const COL_HEADERS = [
+    t('rankings.rank'), t('rankings.user'), t('rankings.bestPts'), t('rankings.bestSpeed'),
+    t('rankings.avgPts'), t('rankings.avgSpeed'), t('rankings.accuracy'), t('rankings.tests'),
+  ];
 
   useEffect(() => {
     const fetchRanking = async () => {
@@ -43,8 +48,8 @@ const Rankings = ({ sound, setSound }) => {
 
       <FadeUp className="w-full max-w-4xl px-6 pt-8 flex flex-col gap-6">
         <div>
-          <p className="text-xs text-kp-muted uppercase tracking-widest mb-1">Clasificación global</p>
-          <h1 className="text-2xl font-medium text-kp-text">Rankings</h1>
+          <p className="text-xs text-kp-muted uppercase tracking-widest mb-1">{t('rankings.title')}</p>
+          <h1 className="text-2xl font-medium text-kp-text">{t('rankings.subtitle')}</h1>
         </div>
 
         <div className="border-b border-kp-border pb-4 flex flex-wrap gap-2">
@@ -91,7 +96,7 @@ const Rankings = ({ sound, setSound }) => {
             </div>
           </section>
         ) : (
-          <p className="text-kp-muted">No hay datos</p>
+          <p className="text-kp-muted">{t('rankings.noData')}</p>
         )}
       </FadeUp>
     </div>

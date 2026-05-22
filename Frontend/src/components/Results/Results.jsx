@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { ArrowLeftRight, Check, AlertTriangle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import StatCard from '../ui/StatCard';
 
 const Results = ({ results, areResultsSaved }) => {
+  const { t } = useTranslation();
   const [velocityType, setVelocityType] = useState('ppm');
 
   if (!results.isReady) return null;
@@ -13,22 +15,22 @@ const Results = ({ results, areResultsSaved }) => {
       {areResultsSaved.user && areResultsSaved.test ? (
         <div className="my-4 flex items-center gap-3 py-2 px-6 border border-green-500/50 bg-green-50 text-green-700 text-sm">
           <Check size={14} />
-          <span>Resultados guardados correctamente</span>
+          <span>{t('results.saved')}</span>
           <Check size={14} />
         </div>
       ) : (
         <div className="my-4 flex items-center gap-3 py-2 px-6 border border-kp-accent/50 bg-kp-accent/10 text-kp-text text-sm">
           <AlertTriangle size={14} className="text-kp-accent" />
-          <span>Inicia sesión para guardar los resultados</span>
+          <span>{t('results.loginToSave')}</span>
           <AlertTriangle size={14} className="text-kp-accent" />
         </div>
       )}
 
-      <p className="text-xs text-kp-muted uppercase tracking-widest w-4/6">Resultados</p>
+      <p className="text-xs text-kp-muted uppercase tracking-widest w-4/6">{t('results.title')}</p>
       <div className="mt-4 w-4/6 grid grid-cols-3 gap-3">
-        <StatCard label="Puntuación" value={results.score} unit="pts." />
+        <StatCard label={t('results.score')} value={results.score} unit={t('results.pts')} />
 
-        <StatCard label="Velocidad" className="relative">
+        <StatCard label={t('results.speed')} className="relative">
           <button
             onClick={() => setVelocityType(velocityType === 'ppm' ? 'cpm' : 'ppm')}
             className="absolute top-3 right-3 text-kp-muted hover:text-kp-accent transition-colors"
@@ -41,10 +43,10 @@ const Results = ({ results, areResultsSaved }) => {
           </p>
         </StatCard>
 
-        <StatCard label="Precisión" value={results.accurate} unit="%" />
-        <StatCard label="Errores" value={results.errors} unit="err." />
-        <StatCard label="Tiempo" value={results.time} unit="seg." />
-        <StatCard label="Caracteres escritos" value={results.totalChar} unit="car." />
+        <StatCard label={t('results.accuracy')} value={results.accurate} unit="%" />
+        <StatCard label={t('results.errors')} value={results.errors} unit={t('results.err')} />
+        <StatCard label={t('results.time')} value={results.time} unit={t('results.sec')} />
+        <StatCard label={t('results.chars')} value={results.totalChar} unit={t('results.car')} />
       </div>
     </>
   );

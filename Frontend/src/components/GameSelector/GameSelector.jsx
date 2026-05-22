@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Keyboard, Clock, Globe, Code2, ChevronDown, BarChart2, AlignLeft } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 // ── Chip ──────────────────────────────────────────────────────────────────────
 const Chip = ({ icon, label, open, onClick }) => (
@@ -76,36 +77,40 @@ function usePopover() {
 }
 
 // ── GameSelector ──────────────────────────────────────────────────────────────
-const MODE_OPTIONS = [
-  { value: 'practice', label: 'Práctica' },
-  { value: 'timed',    label: 'Cronómetro' },
-];
-const DIFF_OPTIONS = [
-  { value: 'easy',   label: 'Fácil' },
-  { value: 'medium', label: 'Medio' },
-  { value: 'hard',   label: 'Difícil' },
-];
-const LEN_OPTIONS = [
-  { value: 'short',  label: 'Corto' },
-  { value: 'medium', label: 'Medio' },
-  { value: 'long',   label: 'Largo' },
-];
-const TIME_OPTIONS = [
-  { value: 30,  label: '30 s' },
-  { value: 60,  label: '60 s' },
-  { value: 120, label: '120 s' },
-];
-const TEXT_LANGS = [{ value: 'es', label: 'Español' }, { value: 'en', label: 'English' }];
-const CODE_LANGS = [
-  { value: 'python',     label: 'Python' },
-  { value: 'javascript', label: 'JavaScript' },
-  { value: 'c++',        label: 'C++' },
-  { value: 'html',       label: 'HTML' },
-  { value: 'java',       label: 'Java' },
-];
-
 const GameSelector = ({ gameSettings, setGameSettings }) => {
+  const { t } = useTranslation();
   const { mode, type, language: lang, difficulty, length, time } = gameSettings;
+
+  const MODE_OPTIONS = [
+    { value: 'practice', label: t('gameSelector.practice') },
+    { value: 'timed',    label: t('gameSelector.stopwatch') },
+  ];
+  const DIFF_OPTIONS = [
+    { value: 'easy',   label: t('gameSelector.easy') },
+    { value: 'medium', label: t('gameSelector.medium') },
+    { value: 'hard',   label: t('gameSelector.hard') },
+  ];
+  const LEN_OPTIONS = [
+    { value: 'short',  label: t('gameSelector.short') },
+    { value: 'medium', label: t('gameSelector.medium') },
+    { value: 'long',   label: t('gameSelector.long') },
+  ];
+  const TIME_OPTIONS = [
+    { value: 30,  label: '30 s' },
+    { value: 60,  label: '60 s' },
+    { value: 120, label: '120 s' },
+  ];
+  const TEXT_LANGS = [
+    { value: 'es', label: t('gameSelector.spanish') },
+    { value: 'en', label: t('gameSelector.english') },
+  ];
+  const CODE_LANGS = [
+    { value: 'python',     label: 'Python' },
+    { value: 'javascript', label: 'JavaScript' },
+    { value: 'c++',        label: 'C++' },
+    { value: 'html',       label: 'HTML' },
+    { value: 'java',       label: 'Java' },
+  ];
 
   const modeP = usePopover();
   const timeP = usePopover();
@@ -174,14 +179,14 @@ const GameSelector = ({ gameSettings, setGameSettings }) => {
         <AnimatePresence>
           {typeP.open && (
             <Popover>
-              <PopoverSection label="Texto" />
+              <PopoverSection label={t('history.text')} />
               {TEXT_LANGS.map(o => (
                 <PopoverItem key={o.value} active={type === 'text' && lang === o.value} onClick={() => pickTypeLang('text', o.value)}>
                   {o.label}
                 </PopoverItem>
               ))}
               <div className="border-t border-kp-border my-1" />
-              <PopoverSection label="Código" />
+              <PopoverSection label={t('history.code')} />
               {CODE_LANGS.map(o => (
                 <PopoverItem key={o.value} active={type === 'code' && lang === o.value} onClick={() => pickTypeLang('code', o.value)}>
                   {o.label}
