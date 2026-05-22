@@ -3,8 +3,11 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Crown, Settings2, Volume2, VolumeX, ChevronDown, User, LogIn } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 const Navbar = ({ sound, setSound }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [isSubMenuOpened, setIsSubMenuOpened] = useState(false);
   const [userData, setUserData] = useState({
@@ -57,6 +60,8 @@ const Navbar = ({ sound, setSound }) => {
       </div>
 
       <div className="ml-auto flex items-center gap-3">
+        <LanguageSwitcher />
+
         <button
           onClick={() => setSound(!sound)}
           className="text-kp-muted hover:text-kp-accent transition-colors"
@@ -85,7 +90,7 @@ const Navbar = ({ sound, setSound }) => {
                   onClick={() => setIsSubMenuOpened(false)}
                 >
                   <p className="flex items-center gap-2 py-2 px-3 text-sm text-kp-text hover:bg-kp-surface transition-colors">
-                    <User size={14} /> Mi perfil
+                    <User size={14} /> {t('nav.myProfile')}
                   </p>
                 </Link>
                 <p
@@ -98,7 +103,7 @@ const Navbar = ({ sound, setSound }) => {
                   }}
                   className="flex items-center gap-2 py-2 px-3 text-sm text-kp-text hover:bg-kp-surface transition-colors cursor-pointer"
                 >
-                  <LogIn size={14} /> Cerrar sesión
+                  <LogIn size={14} /> {t('nav.logout')}
                 </p>
               </div>
             )}
@@ -106,7 +111,7 @@ const Navbar = ({ sound, setSound }) => {
         ) : (
           <Link to="/auth">
             <button className="flex items-center gap-2 bg-kp-accent text-white px-4 py-2 text-sm font-medium hover:brightness-105 transition-all">
-              <LogIn size={14} /> Acceder
+              <LogIn size={14} /> {t('nav.login')}
             </button>
           </Link>
         )}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeftRight, Pencil, List } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import Navbar from '../components/Navbar/Navbar';
 import StatCard from '../components/ui/StatCard';
@@ -19,6 +20,7 @@ const DEFAULT_USER = {
 };
 
 const Profile = ({ sound, setSound }) => {
+  const { t } = useTranslation();
   const { username } = useParams();
   const navigate = useNavigate();
   const [velocityType, setVelocityType] = useState('ppm');
@@ -55,18 +57,18 @@ const Profile = ({ sound, setSound }) => {
             alt="Profile"
           />
           <div>
-            <p className="text-xs text-kp-muted uppercase tracking-widest mb-1">Perfil</p>
+            <p className="text-xs text-kp-muted uppercase tracking-widest mb-1">{t('profile.title')}</p>
             <h2 className="text-2xl font-medium text-kp-text">{userData.username}</h2>
           </div>
           <div className="ml-auto flex gap-3">
             {isOwner && (
               <Button variant="subtle" onClick={() => navigate('/settings', { state: { tab: 'account' } })}>
-                <Pencil size={14} /> Editar perfil
+                <Pencil size={14} /> {t('profile.editProfile')}
               </Button>
             )}
             <Link to={`/history/${username}`}>
               <Button variant="subtle">
-                <List size={14} /> Historial
+                <List size={14} /> {t('profile.history')}
               </Button>
             </Link>
           </div>
@@ -74,10 +76,10 @@ const Profile = ({ sound, setSound }) => {
 
         {/* Top stats */}
         <FadeUp delay={0.08}>
-          <p className="text-xs text-kp-muted uppercase tracking-widest mb-3">Estadísticas principales</p>
+          <p className="text-xs text-kp-muted uppercase tracking-widest mb-3">{t('profile.mainStats')}</p>
           <div className="grid grid-cols-3 gap-3">
-            <StatCard label="Puntuación media" value={userData.avgScore} unit="pts." />
-            <StatCard label="Velocidad media" className="relative">
+            <StatCard label={t('profile.avgScore')} value={userData.avgScore} unit={t('profile.pts')} />
+            <StatCard label={t('profile.avgSpeed')} className="relative">
               <button onClick={toggleVelocity} className="absolute top-4 right-4 text-kp-muted hover:text-kp-accent transition-colors">
                 <ArrowLeftRight size={12} />
               </button>
@@ -86,16 +88,16 @@ const Profile = ({ sound, setSound }) => {
                 <span className="text-lg font-medium text-kp-accent ml-1">{velocityType.toUpperCase()}</span>
               </p>
             </StatCard>
-            <StatCard label="Precisión media" value={userData.avgAccuracy} unit="%" />
+            <StatCard label={t('profile.avgAccuracy')} value={userData.avgAccuracy} unit="%" />
           </div>
         </FadeUp>
 
         {/* Extended stats */}
         <FadeUp delay={0.14}>
-          <p className="text-xs text-kp-muted uppercase tracking-widest mb-3">Desglose</p>
+          <p className="text-xs text-kp-muted uppercase tracking-widest mb-3">{t('profile.breakdown')}</p>
           <div className="grid grid-cols-4 gap-3">
-            <StatCard label="Mejor puntuación" value={userData.bestScore} unit="pts." />
-            <StatCard label="Mejor velocidad" className="relative">
+            <StatCard label={t('profile.bestScore')} value={userData.bestScore} unit={t('profile.pts')} />
+            <StatCard label={t('profile.bestSpeed')} className="relative">
               <button onClick={toggleVelocity} className="absolute top-4 right-4 text-kp-muted hover:text-kp-accent transition-colors">
                 <ArrowLeftRight size={12} />
               </button>
@@ -104,12 +106,12 @@ const Profile = ({ sound, setSound }) => {
                 <span className="text-lg font-medium text-kp-accent ml-1">{velocityType.toUpperCase()}</span>
               </p>
             </StatCard>
-            <StatCard label="Tests jugados" value={userData.totalTests} />
-            <StatCard label="Número de errores" value={userData.numErrors} />
-            <StatCard label="Caracteres escritos" value={userData.numCharacters} />
-            <StatCard label="Tests fáciles" value={userData.numEasyTests} />
-            <StatCard label="Tests medios" value={userData.numMediumTests} />
-            <StatCard label="Tests difíciles" value={userData.numHardTests} />
+            <StatCard label={t('profile.totalTests')} value={userData.totalTests} />
+            <StatCard label={t('profile.totalErrors')} value={userData.numErrors} />
+            <StatCard label={t('profile.totalChars')} value={userData.numCharacters} />
+            <StatCard label={t('profile.easyTests')} value={userData.numEasyTests} />
+            <StatCard label={t('profile.mediumTests')} value={userData.numMediumTests} />
+            <StatCard label={t('profile.hardTests')} value={userData.numHardTests} />
           </div>
         </FadeUp>
 

@@ -4,18 +4,20 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 import Navbar from '../components/Navbar/Navbar';
 import StatCard from '../components/ui/StatCard';
 
-const LANG_LABELS = {
-  es: 'Español', en: 'English', python: 'Python',
-  javascript: 'JavaScript', 'c++': 'C++', html: 'HTML', java: 'Java',
-};
-
 const TestPreview = ({ sound, setSound }) => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const [test, setTest] = useState(null);
+
+  const LANG_LABELS = {
+    es: t('testPreview.spanish'), en: t('testPreview.english'),
+    python: 'Python', javascript: 'JavaScript', 'c++': 'C++', html: 'HTML', java: 'Java',
+  };
 
   useEffect(() => {
     const fetchTest = async () => {
@@ -48,34 +50,42 @@ const TestPreview = ({ sound, setSound }) => {
         <main className="w-full flex items-start">
           <section className="w-4/6 flex flex-col items-center gap-6 p-4">
             <div className="w-full flex flex-col items-center gap-4">
-              <p className="font-medium text-2xl text-left w-4/6">Texto</p>
+              <p className="font-medium text-2xl text-left w-4/6">{t('testPreview.text')}</p>
               <div className="w-4/6 text-2xl tracking-wider leading-9">{renderText()}</div>
             </div>
 
             <div className="w-full flex flex-col items-center gap-4">
-              <p className="font-medium text-2xl text-left w-4/6">Resultados</p>
+              <p className="font-medium text-2xl text-left w-4/6">{t('testPreview.results')}</p>
               <div className="w-4/6 grid grid-cols-3 gap-3">
-                <StatCard label="Puntuación" value={test.score} unit="pts." />
-                <StatCard label="Velocidad" value={test.speed} unit="CPM" />
-                <StatCard label="Precisión" value={test.accuracy} unit="%" />
-                <StatCard label="Errores" value={test.numErrors} unit="err." />
-                <StatCard label="Tiempo" value={test.time} unit="seg." />
-                <StatCard label="Caracteres" value={test.numCharacters} unit="car." />
+                <StatCard label={t('testPreview.score')} value={test.score} unit={t('testPreview.pts')} />
+                <StatCard label={t('testPreview.speed')} value={test.speed} unit="CPM" />
+                <StatCard label={t('testPreview.accuracy')} value={test.accuracy} unit="%" />
+                <StatCard label={t('testPreview.errors')} value={test.numErrors} unit={t('testPreview.err')} />
+                <StatCard label={t('testPreview.time')} value={test.time} unit={t('testPreview.sec')} />
+                <StatCard label={t('testPreview.chars')} value={test.numCharacters} unit={t('testPreview.car')} />
               </div>
             </div>
           </section>
 
           <section className="w-2/6 flex justify-center p-4 pt-8">
             <div className="w-5/6 bg-kp-surface border border-kp-border rounded-xl py-8 px-6 flex flex-col gap-4">
-              <p className="font-medium text-xl">Detalles</p>
+              <p className="font-medium text-xl">{t('testPreview.details')}</p>
 
               {[
-                ['Jugador', test.player, true],
-                ['Fecha', test.date, false],
-                ['Modo', { practice: 'Práctica', timed: 'Cronómetro', competitive: 'Competitivo' }[test.mode], false],
-                ['Tipo', test.type === 'text' ? 'Texto' : 'Código', false],
-                ['Dificultad', { easy: 'Fácil', medium: 'Medio', hard: 'Difícil' }[test.difficulty], false],
-                ['Lenguaje', LANG_LABELS[test.language] ?? test.language, false],
+                [t('testPreview.player'), test.player, true],
+                [t('testPreview.date'), test.date, false],
+                [t('testPreview.mode'), {
+                  practice: t('testPreview.practice'),
+                  timed: t('testPreview.stopwatch'),
+                  competitive: t('testPreview.competitive'),
+                }[test.mode], false],
+                [t('testPreview.type'), test.type === 'text' ? t('testPreview.textType') : t('testPreview.codeType'), false],
+                [t('testPreview.difficulty'), {
+                  easy: t('testPreview.easy'),
+                  medium: t('testPreview.medium'),
+                  hard: t('testPreview.hard'),
+                }[test.difficulty], false],
+                [t('testPreview.language'), LANG_LABELS[test.language] ?? test.language, false],
               ].map(([label, value, isLink]) => (
                 <div key={label} className="flex items-center gap-2 text-sm">
                   <span className="bg-kp-accent/20 text-kp-text px-2 py-1 rounded font-medium min-w-24">{label}</span>
@@ -92,7 +102,7 @@ const TestPreview = ({ sound, setSound }) => {
           </section>
         </main>
       ) : (
-        <p className="text-kp-muted">No hay datos</p>
+        <p className="text-kp-muted">{t('testPreview.noData')}</p>
       )}
     </div>
   );

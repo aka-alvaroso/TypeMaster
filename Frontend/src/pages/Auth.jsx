@@ -1,7 +1,8 @@
-﻿import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 import LoginForm from '../components/LoginForm/LoginForm';
 import RegisterForm from '../components/RegisterForm/RegisterForm';
 
@@ -16,7 +17,6 @@ const useCountUp = (target) => {
     const start = performance.now();
     const tick = (now) => {
       const progress = Math.min((now - start) / DURATION, 1);
-      // ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.round(eased * target);
       setDisplay(current);
@@ -59,6 +59,7 @@ const Logo = ({ className = 'w-7', fill = 'fill-kp-accent' }) => (
 );
 
 const Auth = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [tab, setTab] = useState('login');
   const [dir, setDir] = useState(1);
@@ -98,12 +99,12 @@ const Auth = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
         >
-          <p className="text-white/50 text-xs uppercase tracking-widest">Test de velocidad</p>
+          <p className="text-white/50 text-xs uppercase tracking-widest">{t('auth.tagline')}</p>
           <h2 className="text-3xl font-medium leading-snug">
-            Escribe más rápido.<br />Comete menos errores.
+            {t('auth.heading1')}<br />{t('auth.heading2')}
           </h2>
           <p className="text-white/65 text-sm leading-relaxed max-w-xs">
-            Practica con textos reales en varios idiomas y lenguajes de programación. Sigue tu progreso con estadísticas detalladas.
+            {t('auth.description')}
           </p>
         </motion.div>
 
@@ -113,10 +114,10 @@ const Auth = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
         >
-          <AnimatedStat target={stats?.totalTests}   label="tests completados" delay={0.25} />
-          <AnimatedStat target={stats?.totalHours}   label="horas escritas"     delay={0.31} suffix=" h" />
-          <AnimatedStat target={5}                   label="lenguajes"          delay={0.37} fixed />
-          <AnimatedStat target={stats?.avgAccuracy}  label="precisión promedio" delay={0.43} suffix="%" />
+          <AnimatedStat target={stats?.totalTests}   label={t('auth.statsTests')}    delay={0.25} />
+          <AnimatedStat target={stats?.totalHours}   label={t('auth.statsHours')}    delay={0.31} suffix=" h" />
+          <AnimatedStat target={5}                   label={t('auth.statsLanguages')} delay={0.37} fixed />
+          <AnimatedStat target={stats?.avgAccuracy}  label={t('auth.statsAccuracy')} delay={0.43} suffix="%" />
         </motion.div>
       </div>
 
@@ -139,16 +140,16 @@ const Auth = () => {
             transition={{ duration: 0.4, delay: 0.15, ease: 'easeOut' }}
           >
             <h1 className="text-xl font-medium text-kp-text">
-              {tab === 'login' ? 'Bienvenido de nuevo' : 'Crear cuenta'}
+              {tab === 'login' ? t('auth.welcomeBack') : t('auth.createAccount')}
             </h1>
             <p className="text-sm text-kp-muted mt-1">
-              {tab === 'login' ? '¿No tienes cuenta? ' : '¿Ya tienes cuenta? '}
+              {tab === 'login' ? t('auth.noAccount') : t('auth.hasAccount')}
               <button
                 onClick={() => switchTab(tab === 'login' ? 'register' : 'login')}
                 onMouseDown={e => e.preventDefault()}
                 className="text-kp-accent hover:underline font-medium"
               >
-                {tab === 'login' ? 'Regístrate' : 'Inicia sesión'}
+                {tab === 'login' ? t('auth.signUp') : t('auth.signIn')}
               </button>
             </p>
           </motion.div>
@@ -171,7 +172,7 @@ const Auth = () => {
           {/* Invitado */}
           <div className="text-center">
             <Link to="/" className="text-xs text-kp-muted hover:text-kp-accent transition-colors">
-              Entrar como invitado →
+              {t('auth.guestEntry')}
             </Link>
           </div>
 
@@ -180,15 +181,15 @@ const Auth = () => {
 
         {/* Footer legal */}
         <div className="flex justify-end gap-4 py-4 px-2">
-          <Link to="/politica" className="text-xs text-kp-muted hover:text-kp-accent transition-colors">Privacidad</Link>
-          <Link to="/terminos" className="text-xs text-kp-muted hover:text-kp-accent transition-colors">Términos</Link>
+          <Link to="/politica" className="text-xs text-kp-muted hover:text-kp-accent transition-colors">{t('auth.privacy')}</Link>
+          <Link to="/terminos" className="text-xs text-kp-muted hover:text-kp-accent transition-colors">{t('auth.terms')}</Link>
           <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-kp-muted hover:text-kp-accent transition-colors"
           >
-            Código fuente
+            {t('auth.sourceCode')}
           </a>
         </div>
 
