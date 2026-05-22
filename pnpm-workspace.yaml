@@ -1,0 +1,6 @@
+packages:
+  - 'Frontend'
+  - 'Backend'
+allowBuilds:
+  '@prisma/engines': true
+  prisma: true
