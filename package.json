@@ -1,9 +1,12 @@
 {
-  "dependencies": {
-    "concurrently": "^9.1.2"
-  },
+  "private": true,
+  "packageManager": "pnpm@11.1.1",
   "scripts": {
-    "start": "concurrently \"cd Frontend && npm run dev\" \"cd Backend && npm start\" --names \"Frontend,Backend\" --prefix-colors \"bgBlue,bgGreen\"",
-    "install": "npm install --prefix Frontend && npm install --prefix Backend"
+    "start": "concurrently \"pnpm --filter Frontend dev\" \"pnpm --filter Backend start\" --names \"Frontend,Backend\" --prefix-colors \"bgBlue,bgGreen\"",
+    "install:all": "pnpm install",
+    "dev": "pnpm run start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
