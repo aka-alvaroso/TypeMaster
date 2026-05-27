@@ -14,7 +14,7 @@ const IGNORED_KEYS = new Set([
  * @param onFinish   - (stats) => void  — called when text is fully typed
  * @param onError    - () => void       — called on first wrong key per character position (Survival)
  */
-export const useMultiplayerTyping = ({ text, sound, disabled = false, onProgress, onFinish, onError }) => {
+export const useMultiplayerTyping = ({ text, textKey = 0, sound, disabled = false, onProgress, onFinish, onError }) => {
   const [cursor, setCursor] = useState(0);
   const [charResults, setCharResults] = useState([]);
   const [isRunning, setIsRunning] = useState(false);
@@ -38,7 +38,7 @@ export const useMultiplayerTyping = ({ text, sound, disabled = false, onProgress
     return () => clearInterval(interval);
   }, [isRunning]);
 
-  // Reset when text changes (new text in Score Attack, or new game)
+  // Reset when text or textKey changes (textKey handles same-text reuse in cycling modes)
   useEffect(() => {
     if (!text) return;
     cursorRef.current = 0;
@@ -52,7 +52,8 @@ export const useMultiplayerTyping = ({ text, sound, disabled = false, onProgress
     setCharResults([]);
     setIsRunning(false);
     setIsFinished(false);
-  }, [text]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text, textKey]);
 
   useEffect(() => {
     if (!text) return;
@@ -140,7 +141,8 @@ export const useMultiplayerTyping = ({ text, sound, disabled = false, onProgress
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [text, sound]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text, textKey, sound]);
 
   return { cursor, charResults, isRunning, isFinished };
 };

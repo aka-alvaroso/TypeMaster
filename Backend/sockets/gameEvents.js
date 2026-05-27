@@ -87,13 +87,18 @@ function registerEvents(io, socket) {
 
   socket.on('game:textDone', ({ code, stats } = {}, cb) => {
     const room = rm.getRoom(code);
-    if (!room || room.status !== 'playing' || room.mode !== 'score_attack') return;
+    if (!room || room.status !== 'playing') return;
+    if (room.mode !== 'score_attack' && room.mode !== 'survival') return;
 
-    rm.addScore(code, socket.id, stats);
-    const sanitized = rm.sanitize(room);
+    const player = room.players.find(p => p.socketId === socket.id);
 
-    // Broadcast updated scores to room
-    io.to(code).emit('game:scoreUpdate', { players: sanitized.players });
+    // Survival: only send new text if player is still alive
+    if (room.mode === 'survival' && player?.eliminated) return;
+
+    if (room.mode === 'score_attack') {
+      rm.addScore(code, socket.id, stats);
+      io.to(code).emit('game:scoreUpdate', { players: rm.sanitize(room).players });
+    }
 
     // Send a new text to this player only
     fetchRandomText(room.settings).then(text => {

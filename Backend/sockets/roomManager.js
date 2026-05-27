@@ -143,9 +143,9 @@ function recordError(code, socketId) {
         survivor.position = finishedCount + 1;
       }
     }
-    // Assign position to eliminated player (last of remaining)
-    const notYetPlaced = room.players.filter(q => q.position === null).length;
-    p.position = room.players.length - notYetPlaced + 1;
+    // Assign position to eliminated player (worst among remaining)
+    const nowEliminated = room.players.filter(q => q.eliminated).length;
+    p.position = room.players.length - nowEliminated + 1;
     return { room, eliminated: true, aliveCount };
   }
   return { room, eliminated: false };

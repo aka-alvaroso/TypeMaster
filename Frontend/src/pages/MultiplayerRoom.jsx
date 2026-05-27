@@ -40,9 +40,7 @@ const PlayerRow = ({ player, isMe, mode }) => (
       </>
     ) : mode === 'survival' ? (
       <>
-        <div className="flex-1 h-1.5 bg-kp-surface rounded-full overflow-hidden">
-          <div className="h-full bg-kp-accent transition-all duration-300 rounded-full" style={{ width: `${player.progress}%` }} />
-        </div>
+        <div className="flex-1" />
         <Lives count={player.lives} />
       </>
     ) : (
@@ -153,6 +151,7 @@ const MultiplayerRoom = ({ sound, setSound }) => {
   const [errorCount, setErrorCount] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(null);
   const [gameDuration, setGameDuration]   = useState(null);
+  const [textKey, setTextKey] = useState(0);
 
   const myUsername = JSON.parse(sessionStorage.getItem('userData') ?? '{}')?.username ?? '';
   const mode = room?.mode ?? 'race';
@@ -164,13 +163,15 @@ const MultiplayerRoom = ({ sound, setSound }) => {
     if (!socket || Math.abs(pct - lastProgressPct.current) < 2) return;
     lastProgressPct.current = pct;
     socket.emit('game:progress', { code, pct });
-  }, [socket, code]);
+    // Actualizar barra propia localmente sin esperar al servidor
+    setPlayers(prev => prev.map(p => p.username === myUsername ? { ...p, progress: pct } : p));
+  }, [socket, code, myUsername]);
 
   const handleFinish = useCallback((stats) => {
     if (!socket) return;
-    if (mode === 'score_attack') {
+    if (mode === 'score_attack' || mode === 'survival') {
+      // Texto en bucle: pedir nuevo texto al servidor
       socket.emit('game:textDone', { code, stats });
-      // hook will reset automatically when gameText changes via game:newText
     } else {
       socket.emit('game:finish', { code, stats }, ({ position }) => { void position; });
     }
@@ -185,6 +186,7 @@ const MultiplayerRoom = ({ sound, setSound }) => {
 
   const { cursor, charResults, isFinished } = useMultiplayerTyping({
     text: gameText,
+    textKey,
     sound,
     disabled: eliminated,
     onProgress: handleProgress,
@@ -206,6 +208,7 @@ const MultiplayerRoom = ({ sound, setSound }) => {
 
     socket.on('game:start', ({ text, duration }) => {
       setGameText(text);
+      setTextKey(k => k + 1);
       setStatus('playing');
       setCountdown(null);
       lastProgressPct.current = -1;
@@ -215,7 +218,12 @@ const MultiplayerRoom = ({ sound, setSound }) => {
     // Score Attack
     socket.on('game:tick',        ({ remaining }) => setTimeRemaining(remaining));
     socket.on('game:scoreUpdate', ({ players: p }) => setPlayers(p));
-    socket.on('game:newText',     ({ text }) => { setGameText(text); lastProgressPct.current = -1; });
+    socket.on('game:newText', ({ text }) => {
+      setGameText(text);
+      setTextKey(k => k + 1);
+      lastProgressPct.current = -1;
+      setPlayers(prev => prev.map(p => p.username === myUsername ? { ...p, progress: 0 } : p));
+    });
 
     // Survival
     socket.on('game:livesUpdate',     ({ players: p }) => setPlayers(p));
@@ -322,14 +330,32 @@ const MultiplayerRoom = ({ sound, setSound }) => {
                 />
               </div>
             )}
-            {isFinished && mode !== 'score_attack' && !eliminated && (
+            {isFinished && mode === 'race' && !eliminated && (
               <p className="text-center text-kp-muted text-sm">{t('multiplayer.waitingOthers')}</p>
             )}
-            {isFinished && mode === 'score_attack' && !eliminated && (
+            {isFinished && (mode === 'score_attack' || mode === 'survival') && !eliminated && (
               <p className="text-center text-kp-accent text-sm animate-pulse">{t('multiplayer.newTextLoading')}</p>
             )}
           </div>
         )}
+
+        {/* Win / Lose banner */}
+        {status === 'finished' && (() => {
+          const me = players.find(p => p.username === myUsername);
+          const won = me?.position === 1;
+          return (
+            <div className={`flex flex-col items-center py-6 border ${won ? 'border-kp-accent bg-kp-accent/5' : 'border-kp-border'}`}>
+              <span className={`text-5xl font-bold tracking-tight ${won ? 'text-kp-accent' : 'text-kp-muted'}`}>
+                {won ? t('multiplayer.youWon') : t('multiplayer.youLost')}
+              </span>
+              {me?.position && (
+                <span className="text-sm text-kp-muted mt-1">
+                  {t('multiplayer.finalPosition', { pos: me.position })}
+                </span>
+              )}
+            </div>
+          );
+        })()}
 
         {/* Results */}
         {status === 'finished' && <ResultsTable players={players} mode={mode} />}
