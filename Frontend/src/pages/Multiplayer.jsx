@@ -75,7 +75,7 @@ const Multiplayer = ({ sound, setSound }) => {
   return (
     <div className="min-h-screen flex flex-col items-center bg-kp-bg">
       <Navbar sound={sound} setSound={setSound} />
-      <FadeUp className="flex flex-col items-center w-full max-w-xl px-4 py-12 gap-8">
+      <FadeUp className="flex flex-col items-center w-full max-w-xl px-4 py-12 gap-8 flex-1">
 
         <div className="flex items-center gap-3">
           <Users size={20} className="text-kp-accent" />
@@ -140,8 +140,10 @@ const Multiplayer = ({ sound, setSound }) => {
                   </div>
                 </div>
               )}
-              <OptionGroup label={t('multiplayer.type')} options={TYPES} current={settings.type} onSelect={v => set('type', v)} labelKey="multiplayer" />
-              <OptionGroup label={t('multiplayer.language')} options={LANGUAGES} current={settings.language} onSelect={v => set('language', v)} labelKey="multiplayer" />
+              <OptionGroup label={t('multiplayer.type')} options={TYPES} current={settings.type} onSelect={v => { set('type', v); if (v === 'code') set('language', ''); }} labelKey="multiplayer" />
+              {settings.type === 'text' && (
+                <OptionGroup label={t('multiplayer.language')} options={LANGUAGES} current={settings.language || 'es'} onSelect={v => set('language', v)} labelKey="multiplayer" />
+              )}
             </div>
 
             {error && <p className="text-red-500 text-sm">{error}</p>}

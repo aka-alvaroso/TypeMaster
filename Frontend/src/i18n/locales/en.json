@@ -5,7 +5,7 @@
     "login": "Sign in"
   },
   "footer": {
-    "madeWith": "Made with ❤️ by ",
+    "madeWith": "Made with 💙 by ",
     "privacy": "Privacy",
     "terms": "Terms",
     "sourceCode": "Source code"
@@ -299,7 +299,7 @@
     "mode": "Mode",
     "modeRace": "Sprint",
     "modeScoreAttack": "Time Trial",
-    "modeSurvival": "Elimination",
+    "modeSurvival": "Survival",
     "raceDesc": "First to finish the text wins. Errors block your progress.",
     "score_attackDesc": "Type as much as you can before time runs out. Highest score wins.",
     "survivalDesc": "Each mistake costs a life. Lose all lives and you're eliminated. Last one standing wins.",

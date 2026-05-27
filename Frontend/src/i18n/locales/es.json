@@ -5,7 +5,7 @@
     "login": "Acceder"
   },
   "footer": {
-    "madeWith": "Hecho con ❤️ por ",
+    "madeWith": "Hecho con 💙 por ",
     "privacy": "Privacidad",
     "terms": "Términos",
     "sourceCode": "Código fuente"
@@ -299,7 +299,7 @@
     "mode": "Modo",
     "modeRace": "Sprint",
     "modeScoreAttack": "Contrarreloj",
-    "modeSurvival": "Eliminación",
+    "modeSurvival": "Supervivencia",
     "raceDesc": "Gana quien acabe el texto primero. Los errores bloquean el avance.",
     "score_attackDesc": "Escribe todo lo que puedas en el tiempo límite. Gana quien más puntúe.",
     "survivalDesc": "Cada error cuesta una vida. Sin vidas, quedas eliminado. El último en pie gana.",
