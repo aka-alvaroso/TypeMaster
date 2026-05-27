@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Crown, Settings2, Volume2, VolumeX, ChevronDown, User, LogIn } from 'lucide-react';
+import { Crown, Settings2, Volume2, VolumeX, ChevronDown, User, LogIn, Swords } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
 
@@ -56,6 +56,14 @@ const Navbar = ({ sound, setSound }) => {
           onClick={() => navigate('/settings')}
         >
           <Settings2 size={16} />
+        </button>
+
+        <button
+          className="text-kp-muted hover:text-kp-accent transition-colors"
+          onClick={() => navigate('/multiplayer')}
+          title={t('multiplayer.title')}
+        >
+          <Swords size={16} />
         </button>
       </div>
 

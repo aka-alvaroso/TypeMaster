@@ -22,7 +22,7 @@ const registerUser = async (req, res) => {
       data: { username, email, password: bcrypt.hashSync(password, 10) },
     });
 
-    const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' });
     res.status(201).json({ token, user: savedUser });
 
   } catch (e) {
@@ -45,7 +45,7 @@ const loginUser = async (req, res) => {
       return res.status(401).json({ message: 'Credenciales incorrectas' });
     }
 
-    const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '7d' });
     res.json({ token, user });
 
   } catch (e) {
