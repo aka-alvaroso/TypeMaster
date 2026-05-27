@@ -17,7 +17,8 @@ export const SocketProvider = ({ children }) => {
 
     const userData = JSON.parse(raw);
 
-    const s = io(import.meta.env.VITE_API_URL, {
+    const socketUrl = new URL(import.meta.env.VITE_API_URL).origin;
+    const s = io(socketUrl, {
       auth: { token, username: userData.username },
       autoConnect: true,
       reconnection: true,
