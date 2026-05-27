@@ -36,11 +36,6 @@ export const SocketProvider = ({ children }) => {
       setConnected(false);
     });
 
-    s.on('reconnect', () => {
-      setSocket(s);
-      setConnected(true);
-    });
-
     s.on('connect_error', (err) => {
       console.error('[Socket] Error de conexión:', err.message);
       setSocket(null);

@@ -40,11 +40,18 @@ const Multiplayer = ({ sound, setSound }) => {
 
   const set = (key, value) => setSettings(s => ({ ...s, [key]: value }));
 
+  // Reset loading if socket drops while waiting for a callback
+  useEffect(() => {
+    if (!socket && loading) setLoading(false);
+  }, [socket, loading]);
+
   const handleCreate = () => {
     if (!socket) return;
     setLoading(true);
     setError('');
+    const timeout = setTimeout(() => setLoading(false), 5000);
     socket.emit('room:create', settings, ({ code, error: err }) => {
+      clearTimeout(timeout);
       setLoading(false);
       if (err) { setError(t('multiplayer.errorCreate')); return; }
       navigate(`/multiplayer/${code}`);
@@ -57,7 +64,9 @@ const Multiplayer = ({ sound, setSound }) => {
     if (!socket) return;
     setLoading(true);
     setError('');
+    const timeout = setTimeout(() => setLoading(false), 5000);
     socket.emit('room:join', { code }, ({ room, error: err }) => {
+      clearTimeout(timeout);
       setLoading(false);
       if (err) {
         const msg = err === 'room_not_found' ? t('multiplayer.roomNotFound')
